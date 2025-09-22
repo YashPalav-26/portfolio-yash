@@ -73,7 +73,7 @@ npm run preview
 
 ## 📱 Demo
 
-🌐 **Live Demo**: [View Portfolio](https://your-portfolio-url.vercel.app) 
+🌐 **Live Demo**: [View Portfolio](https://yashpalav.vercel.app) 
 
 The portfolio includes:
 - **Interactive Navigation** - Smooth scrolling between sections
