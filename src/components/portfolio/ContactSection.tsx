@@ -78,6 +78,7 @@ const ContactSection = () => {
           <Reveal>
             <div className="neobrutalist-card p-8">
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+                {/* Visible inputs used by the user */}
                 <div>
                   <Label htmlFor="name" className="text-foreground/80">Name</Label>
                   <Input
@@ -117,6 +118,14 @@ const ContactSection = () => {
                     required
                   />
                 </div>
+
+                {/* Hidden mirrors to support common EmailJS template variable names */}
+                <input type="hidden" name="user_name" value={name} />
+                <input type="hidden" name="from_name" value={name} />
+                <input type="hidden" name="reply_to" value={email} />
+                <input type="hidden" name="from_email" value={email} />
+                <input type="hidden" name="message" value={message} />
+
                 <Button type="submit" className="w-full neobrutalist-button">
                   Send Message
                 </Button>
