@@ -33,7 +33,6 @@ A fast, modern, single-page portfolio built with cutting-edge web technologies. 
 
 **Routing & Data:**
 - 🧭 [React Router](https://reactrouter.com/) - Declarative routing for React
-- 📊 [@tanstack/react-query](https://tanstack.com/query/latest) - Powerful data synchronization
 - 🎬 [Lottie](https://lottiefiles.com/) - High-quality animations
 
 ## 📋 Prerequisites
@@ -74,7 +73,7 @@ npm run preview
 
 ## 📱 Demo
 
-🌐 **Live Demo**: [View Portfolio](https://your-portfolio-url.vercel.app) *(Replace with your actual deployed URL)*
+🌐 **Live Demo**: [View Portfolio](https://your-portfolio-url.vercel.app) 
 
 The portfolio includes:
 - **Interactive Navigation** - Smooth scrolling between sections
@@ -134,45 +133,6 @@ portfolio-yash/
 └── 📄 package.json             # Dependencies and scripts
 ```
 
-## Customization
-- Branding
-  - Logo: `src/components/portfolio/Logo.tsx`
-  - Favicon: `public/favicon.svg`
-  - Colors/gradients/shadows: `src/index.css` (CSS variables at the top)
-- Content
-  - Experience: `src/components/portfolio/ExperienceSection.tsx`
-  - Projects: `src/components/portfolio/ProjectsSection.tsx`
-  - Resume: replace `public/resume.pdf` (buttons open `/resume` in a new tab)
-- Cursor
-  - Tweak size/speed/visibility in `src/components/effects/CursorAura.tsx`
-    - Ring size: change the `h-8 w-8` class
-    - Aura size: change `h-14 w-14`
-    - Ghost visibility: adjust base opacity/size constants
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
-This repository includes a `vercel.json` configuration for optimal SPA routing.
-
-1. **Push to GitHub** - Ensure your code is committed and pushed
-2. **Import to Vercel** - Connect your GitHub repository to Vercel
-3. **Configure Build Settings**:
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `dist`
-   - **Install Command**: `npm install`
-
-### Alternative Platforms
-- **Netlify**: Configure build command `npm run build` and publish directory `dist`
-- **GitHub Pages**: Use GitHub Actions for automated deployment
-- **Other Static Hosts**: Ensure SPA rewrites redirect all routes to `index.html`
-
-> **Note**: The `vercel.json` file handles SPA routing automatically for deep links like `/resume`.
-
-## Accessibility & Performance Notes
-- Reveal animations disable or reduce when `prefers-reduced-motion` is enabled.
-- Cursor effect automatically disables on coarse pointers (touch devices).
-- Designed for no layout thrashing: animations use `transform` and RAF.
-
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](../../issues).
@@ -197,7 +157,7 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 - **LinkedIn**: [linkedin.com/in/yashpalav](https://linkedin.com/in/yashpalav)
 - **GitHub**: [github.com/YashPalav-26](https://github.com/YashPalav-26)
 
-For support, email [your-email@example.com] or create an issue in the repository.
+For support, email [yashpalav48@gmail.com] or create an issue in the repository.
 
 ## 📄 License
 
