@@ -10,6 +10,7 @@ import ExperienceSection from "./ExperienceSection";
 import ProjectsSection from "./ProjectsSection";
 import ContactSection from "./ContactSection";
 import Footer from "./Footer";
+import MobileActionBar from "./MobileActionBar";
 
 const Portfolio = () => {
   const [currentSection, setCurrentSection] = useState("hero");
@@ -58,6 +59,7 @@ const Portfolio = () => {
         <ContactSection />
       </main>
       <Footer />
+      <MobileActionBar />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 const EmailSidebar = () => {
   return (
-    <div className="fixed right-16 bottom-8 z-40">
+    <div className="hidden md:block fixed right-16 bottom-8 z-40">
       <div className="flex flex-col items-center space-y-6">
         <a
           href="mailto:yashpalav48@gmail.com"

@@ -2,6 +2,7 @@ import { Download } from "lucide-react";
 import Lottie from "lottie-react";
 import animationData from "../../assets/breakthrough-idea.json"; 
 import { Reveal } from "@/components/motion/Reveal";
+import { Link } from "react-router-dom";
 
 const AboutSection = () => {
   return (
@@ -60,16 +61,13 @@ const AboutSection = () => {
             </Reveal>
 
             <Reveal delay={0.1}>
-            <button
-              className="neobrutalist-button px-6 py-3 flex items-center gap-2 mt-8"
-              onClick={() => {
-                const href = `${import.meta.env.BASE_URL}resume`;
-                window.open(href, '_blank', 'noopener,noreferrer');
-              }}
+            <Link
+              className="neobrutalist-button px-6 py-3 inline-flex items-center gap-2 mt-8"
+              to="/resume"
             >
               <Download size={18} />
               View Resume
-            </button>
+            </Link>
             </Reveal>
           </div>
 

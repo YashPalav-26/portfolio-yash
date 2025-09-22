@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Logo from "./Logo";
+import { Link } from "react-router-dom";
 
 interface HeaderProps {
   onSectionClick: (section: string) => void;
@@ -37,15 +38,12 @@ const Header = ({ onSectionClick }: HeaderProps) => {
               </button>
             ))}
             <Button
+              asChild
               variant="outline"
               size="sm"
               className="border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-              onClick={() => {
-                const href = `${import.meta.env.BASE_URL}resume`;
-                window.open(href, '_blank', 'noopener,noreferrer');
-              }}
-            >
-              Resume
+>
+              <Link to="/resume">Resume</Link>
             </Button>
           </nav>
         </div>
