@@ -15,7 +15,7 @@ const Footer = () => {
     <footer className="relative mt-24">
       <div className="h-1 w-full bg-gradient-to-r from-primary via-secondary to-primary opacity-70" />
       <div className="bg-background/95 backdrop-blur border-t-2 border-border py-12 px-4">
-<div className="container mx-auto max-w-5xl text-center">
+<div className="container mx-auto max-w-6xl text-center">
           <Reveal>
             <div className="flex justify-center mb-6">
               <Logo size="lg" />

@@ -15,7 +15,7 @@ const Header = ({ onSectionClick }: HeaderProps) => {
   ];
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-background/60 backdrop-blur-md supports-[backdrop-filter]:bg-background/40 border-b border-border/30">
+    <header className="fixed top-0 w-full z-40 bg-background">
       <div className="container mx-auto px-8 py-4">
         <div className="flex items-center justify-between">
           <div className="animate-fade-in">

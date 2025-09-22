@@ -96,7 +96,7 @@ const skills = [
 const SkillsSection = () => {
   return (
     <section id="skills" className="py-16 px-4">
-<div className="container mx-auto max-w-5xl">
+<div className="container mx-auto max-w-6xl">
         <Reveal>
           <h2 className="section-title text-center">My Skills</h2>
         </Reveal>
