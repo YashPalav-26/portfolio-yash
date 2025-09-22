@@ -6,7 +6,7 @@ import { Reveal } from "@/components/motion/Reveal";
 const AboutSection = () => {
   return (
     <section id="about" className="min-h-screen py-16 px-4">
-      <div className="container mx-auto max-w-6xl">
+<div className="container mx-auto max-w-5xl">
         <Reveal>
           <h2 className="section-title text-center">About Me</h2>
         </Reveal>

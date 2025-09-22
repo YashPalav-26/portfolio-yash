@@ -70,7 +70,7 @@ const ProjectsSection = () => {
 
   return (
     <section id="projects" className="min-h-screen py-24 px-4">
-      <div className="container mx-auto max-w-6xl">
+<div className="container mx-auto max-w-5xl">
         <Reveal>
           <h2 className="section-title text-center">My Projects</h2>
         </Reveal>

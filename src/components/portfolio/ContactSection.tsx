@@ -63,7 +63,7 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="min-h-screen py-24 px-4 flex items-center">
-      <div className="container mx-auto max-w-6xl">
+<div className="container mx-auto max-w-5xl">
         <Reveal>
           <h2 className="section-title text-center">Contact Me</h2>
         </Reveal>

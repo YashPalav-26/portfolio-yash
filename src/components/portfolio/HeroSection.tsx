@@ -43,7 +43,7 @@ const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 text-center"
       style={{ background: "var(--gradient-hero)" }}
     >
-      <div className="max-w-6xl px-4 sm:px-6 lg:px-8 w-full">
+      <div className="max-w-5xl px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="text-center md:text-left">
           <Reveal>
