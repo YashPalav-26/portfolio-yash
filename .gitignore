@@ -15,6 +15,7 @@ dist-ssr
 # Ignore Bun lockfile to avoid unintended Bun installs
 bun.lockb
 bun.lock
+.env
 
 # Editor directories and files
 .vscode/*
