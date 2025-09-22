@@ -225,6 +225,16 @@
     white-space: nowrap;
     animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
   }
+
+  /* Clamped typography to prevent oversized text on very large screens */
+  .text-hero {
+    font-size: clamp(2.25rem, 6vw, 4.5rem); /* ~36px -> 72px */
+    line-height: 1.1;
+  }
+  .text-hero-sub {
+    font-size: clamp(1rem, 2.2vw, 1.875rem); /* ~16px -> 30px */
+    line-height: 1.25;
+  }
   
   .fade-in-up {
     animation: fadeInUp 0.5s ease-out forwards;

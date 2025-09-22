@@ -53,13 +53,13 @@ const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
           </Reveal>
 
           <Reveal delay={0.05}>
-            <h1 className="text-5xl md:text-7xl font-black text-foreground mb-4">
+            <h1 className="text-hero font-black text-foreground mb-4">
               Yash Palav
             </h1>
           </Reveal>
 
           <Reveal delay={0.1}>
-            <h3 className="text-1xl md:text-3xl font-bold text-muted-foreground mb-8 h-12 flex items-center justify-center md:justify-start">
+            <h3 className="text-hero-sub font-bold text-muted-foreground mb-8 h-12 flex items-center justify-center md:justify-start">
               <span className="typewriter">{currentText}</span>
             </h3>
           </Reveal>
