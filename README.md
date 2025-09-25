@@ -41,36 +41,6 @@ A fast, modern, single-page portfolio built with cutting-edge web technologies. 
 - **npm** (or pnpm/yarn if you prefer)
 - **Git** for cloning the repository
 
-## 🚀 Quick Start
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/YashPalav-26/My-Portfolio.git
-cd portfolio-yash
-```
-
-### 2. Install Dependencies
-```bash
-npm install
-# or
-yarn install
-# or
-pnpm install
-```
-
-### 3. Start Development Server
-```bash
-npm run dev
-```
-
-The application will be available at `http://localhost:3000`
-
-### 4. Build for Production
-```bash
-npm run build
-npm run preview
-```
-
 ## 📱 Demo
 
 🌐 **Live Demo**: [View Portfolio](https://yashpalav.vercel.app) 
@@ -132,23 +102,6 @@ portfolio-yash/
 ├── 📄 *.config.*               # Configuration files
 └── 📄 package.json             # Dependencies and scripts
 ```
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](../../issues).
-
-### How to Contribute
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-### Development Guidelines
-- Follow the existing code style and conventions
-- Add tests for new features
-- Update documentation as needed
-- Ensure all tests pass before submitting PR
 
 ## 📞 Support & Contact
 
