@@ -116,6 +116,23 @@ For support, email [yashpalav48@gmail.com] or create an issue in the repository.
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
+## 🎯 Credits & Attribution
+
+If you find this portfolio inspiring and decide to clone, fork, or use this code as a foundation for your own portfolio, I kindly ask that you:
+
+- **Give appropriate credit** by mentioning me as the original author
+- **Include a link back** to this original repository: [github.com/YashPalav-26/portfolio-yash](https://github.com/YashPalav-26/portfolio-yash)
+- **Respect the open-source spirit** by sharing your improvements with the community
+
+A simple attribution in your README would be greatly appreciated:
+
+```markdown
+## Credits
+This portfolio is inspired by [Yash Palav's Portfolio](https://github.com/YashPalav-26/portfolio-yash) - Built with React, TypeScript, and Tailwind CSS.
+```
+
+Your recognition helps support open-source development and motivates continuous improvement. Thank you for your understanding and respect for the original work!
+
 ---
 
 <div align="center">
