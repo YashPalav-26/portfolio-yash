@@ -128,7 +128,7 @@ A simple attribution in your README would be greatly appreciated:
 
 ```markdown
 ## Credits
-This portfolio is inspired by [Yash Palav's Portfolio](https://github.com/YashPalav-26/My-Portfolio) - Built with React, TypeScript, and Tailwind CSS.
+This portfolio is inspired by [Yash Palav's Portfolio](https://github.com/YashPalav-26/portfolio-yash) - Built with React, TypeScript, and Tailwind CSS.
 ```
 
 Your recognition helps support open-source development and motivates continuous improvement. Thank you for your understanding and respect for the original work!
