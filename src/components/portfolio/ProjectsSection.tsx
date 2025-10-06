@@ -149,8 +149,9 @@ const ProjectsSection = () => {
             {otherProjects.map((project, index) => (
               <FadeInItem
                 key={index}
-                className="neobrutalist-card h-full flex flex-col group"
+                className="relative neobrutalist-card h-full flex flex-col group overflow-hidden rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl after:pointer-events-none after:absolute after:-right-10 after:-top-10 after:h-24 after:w-24 after:rounded-full after:bg-primary/20 after:blur-3xl after:opacity-0 group-hover:after:opacity-100"
               >
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
                 <div className="flex items-center justify-between mb-6">
                   <h4 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                     {project.title}
@@ -160,7 +161,7 @@ const ProjectsSection = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-foreground hover:text-primary transition-transform duration-200 hover:-translate-y-0.5"
+                      className="rounded-full border border-primary/40 p-1.5 text-foreground hover:text-primary hover:bg-primary/10 transition-colors duration-200"
                       aria-label="View source code on GitHub"
                     >
                       <Github size={20} />
@@ -169,7 +170,7 @@ const ProjectsSection = () => {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-foreground hover:text-primary transition-transform duration-200 hover:-translate-y-0.5"
+                      className="rounded-full border border-primary/40 p-1.5 text-foreground hover:text-primary hover:bg-primary/10 transition-colors duration-200"
                       aria-label="View live project"
                     >
                       <ExternalLink size={20} />
@@ -181,11 +182,11 @@ const ProjectsSection = () => {
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-border">
+                <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-border/60">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="text-xs font-mono text-secondary bg-secondary/10 px-2 py-1"
+                      className="text-[11px] font-mono text-secondary/90 bg-secondary/5 border border-secondary/30 rounded-full px-2.5 py-1 transition-colors group-hover:bg-secondary/10"
                     >
                       {tech}
                     </span>
