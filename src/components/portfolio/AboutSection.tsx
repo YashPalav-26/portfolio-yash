@@ -15,7 +15,8 @@ const AboutSection = () => {
         <div className="grid md:grid-cols-12 gap-16 items-start mt-16">
           <div className="md:col-span-6 space-y-6">
             <Reveal>
-            <div className="space-y-4 text-lg text-foreground/80 leading-relaxed neobrutalist-card p-8 md:p-10">
+            <div className="relative overflow-hidden space-y-4 text-lg text-foreground/80 leading-relaxed neobrutalist-card p-8 md:p-10 rounded-xl border border-primary/20 shadow-lg">
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
               <p>
                 I'm a web developer with a strong foundation in modern technologies, driven by curiosity and a focus on craft. I enjoy turning ideas into reliable, polished experiences and contributing to teams that value quality and impact.
               </p>
