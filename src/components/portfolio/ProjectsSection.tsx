@@ -78,8 +78,8 @@ const ProjectsSection = () => {
         <div className="space-y-24 mt-16">
           {featuredProjects.map((project, index) => (
             <Reveal key={index}>
-              <div className="grid md:grid-cols-2 gap-8 items-center neobrutalist-card">
-                <div className="relative group overflow-hidden">
+              <div className="grid md:grid-cols-2 gap-12 items-center neobrutalist-card md:relative">
+                <div className="relative group overflow-hidden rounded-lg ring-1 ring-primary/10">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -91,24 +91,28 @@ const ProjectsSection = () => {
                 <div className="space-y-6">
                   <div>
                     <p className="text-primary font-mono text-sm mb-2 tracking-widest uppercase">Featured Project</p>
-                    <h3 className="text-3xl font-bold text-foreground mb-4">
+                    <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                       {project.title}
                     </h3>
                   </div>
 
-                  <div className="bg-background/50 p-6">
+                  <div className="relative bg-foreground/5 border border-border/60 rounded-xl shadow-lg p-6 md:p-8 md:-ml-16 backdrop-blur-sm">
                     <p className="text-foreground/80 leading-relaxed">
                       {project.description}
                     </p>
                   </div>
 
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-secondary font-mono text-sm">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="bg-secondary/20 text-secondary px-3 py-1 text-sm font-mono rounded-full"
+                        className="opacity-90"
                       >
                         {tech}
+                        {" "}
+                        {project.technologies.indexOf(tech) < project.technologies.length - 1 && (
+                          <span className="mx-2 text-foreground/40">•</span>
+                        )}
                       </span>
                     ))}
                   </div>
@@ -118,7 +122,7 @@ const ProjectsSection = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-foreground hover:text-primary transition-transform duration-200 hover:-translate-y-0.5"
+                      className="rounded-full border border-primary/40 p-2 text-foreground hover:text-primary hover:bg-primary/10 transition-colors duration-200"
                       aria-label="View source code on GitHub"
                     >
                       <Github size={24} />
@@ -127,7 +131,7 @@ const ProjectsSection = () => {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-foreground hover:text-primary transition-transform duration-200 hover:-translate-y-0.5"
+                      className="rounded-full border border-primary/40 p-2 text-foreground hover:text-primary hover:bg-primary/10 transition-colors duration-200"
                       aria-label="View live project"
                     >
                       <ExternalLink size={24} />
