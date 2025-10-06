@@ -190,14 +190,70 @@
     @apply font-bold uppercase tracking-wider;
     background: hsl(var(--primary));
     color: hsl(var(--primary-foreground));
-    border: 2px solid hsl(var(--border));
-    box-shadow: var(--shadow-brutal);
-    transition: var(--transition-smooth);
+    border: 3px solid hsl(210 25% 10%);
+    box-shadow: 4px 4px 0px hsl(210 25% 10%);
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .neobrutalist-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .neobrutalist-button:hover::before {
+    left: 100%;
   }
 
   .neobrutalist-button:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 8px 8px 0px hsl(var(--border));
+    box-shadow: 6px 6px 0px hsl(210 25% 10%);
+  }
+
+  .neobrutalist-button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px hsl(210 25% 10%);
+  }
+
+  /* Button Variants */
+  .neobrutalist-button-primary {
+    background: hsl(var(--primary));
+    color: hsl(210 25% 15%);
+    border: 3px solid hsl(210 25% 10%);
+  }
+
+  .neobrutalist-button-secondary {
+    background: hsl(var(--secondary));
+    color: hsl(0 0% 96%);
+    border: 3px solid hsl(210 25% 10%);
+  }
+
+  .neobrutalist-button-outline {
+    background: transparent;
+    color: hsl(var(--primary));
+    border: 3px solid hsl(var(--primary));
+  }
+
+  .neobrutalist-button-outline:hover {
+    background: hsl(var(--primary) / 0.1);
+  }
+
+  .neobrutalist-button-ghost {
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    border: 3px solid hsl(var(--border));
+  }
+
+  .neobrutalist-button-ghost:hover {
+    background: hsl(var(--primary) / 0.1);
+    border-color: hsl(var(--primary));
   }
 
   .section-number {
