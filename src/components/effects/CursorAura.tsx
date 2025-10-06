@@ -55,10 +55,27 @@ export default function CursorAura() {
     window.addEventListener("mouseup", handleUp, { passive: true });
 
     const loop = () => {
+      const prevDotX = posDot.current.x;
+      const prevDotY = posDot.current.y;
+      const prevAuraX = posAura.current.x;
+      const prevAuraY = posAura.current.y;
+
       posDot.current.x = lerp(posDot.current.x, target.current.x, speedDot);
       posDot.current.y = lerp(posDot.current.y, target.current.y, speedDot);
       posAura.current.x = lerp(posAura.current.x, target.current.x, speedAura);
       posAura.current.y = lerp(posAura.current.y, target.current.y, speedAura);
+
+      // Check if position has changed significantly (more than 0.5px)
+      const hasMoved = 
+        Math.abs(posDot.current.x - prevDotX) > 0.5 ||
+        Math.abs(posDot.current.y - prevDotY) > 0.5 ||
+        Math.abs(posAura.current.x - prevAuraX) > 0.5 ||
+        Math.abs(posAura.current.y - prevAuraY) > 0.5;
+
+      if (!hasMoved && !hoverRef.current) {
+        rafId.current = window.requestAnimationFrame(loop);
+        return;
+      }
 
       historyRef.current.push({ x: posAura.current.x, y: posAura.current.y });
       if (historyRef.current.length > HISTORY_LEN) historyRef.current.shift();
