@@ -17,15 +17,15 @@ const AboutSection = () => {
             <Reveal>
             <div className="space-y-4 text-lg text-foreground/80 leading-relaxed neobrutalist-card p-8 md:p-10">
               <p>
-                An enthusiastic individual with a solid foundation in web development technologies, eager to apply technical skills and innovative project experience within the field of Information Technology. Possesses a strong passion for learning and contributing to projects that support ongoing organizational growth and excellence in web development initiatives.
+                I'm a web developer with a strong foundation in modern technologies, driven by curiosity and a focus on craft. I enjoy turning ideas into reliable, polished experiences and contributing to teams that value quality and impact.
               </p>
 
               <p>
-                Completed Diploma in Information Technology from Government Polytechnic Mumbai with 91.52% aggregate. Focused on core IT subjects including web development, programming, and database management. Actively engaged in practical projects and hands-on learning experiences.
+                I earned a Diploma in Information Technology from Government Polytechnic Mumbai (91.52%), focusing on web development, programming, and database management, strengthened by hands-on, project-based learning.
               </p>
 
               <div className="mt-6">
-                <p className="mb-3 text-foreground/90">Here are a few of the other activities that I love to do:</p>
+                <p className="mb-3 text-foreground/90">Outside of work, I enjoy:</p>
                 <div className="grid grid-cols-2 gap-2 text-sm">
                   <div className="flex items-center">
                     <span className="text-primary mr-2">▸</span>
