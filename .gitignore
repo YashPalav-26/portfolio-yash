@@ -27,3 +27,14 @@ bun.lock
 *.njsproj
 *.sln
 *.sw?
+
+
+src/assets/lottie/**/*.json
+src/assets/animations/**/*.json
+public/lottie/**/*.json
+public/animations/**/*.json
+
+
+src/assets/breakthrough-idea.json
+
+
