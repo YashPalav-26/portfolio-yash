@@ -39,16 +39,20 @@ export function Reveal({
         },
       };
 
+  // Using motion.div as a wrapper is necessary for the animation to work properly
+  // The 'as' prop allows customizing the wrapper element if needed
+  const Component = motion[Tag] || motion.div;
+
   return (
-    <motion.div
+    <Component
       className={className}
       initial="hidden"
       whileInView="visible"
       viewport={{ once, amount: 0.2, margin: "-10% 0px" }}
       variants={variants}
     >
-      <Tag>{children}</Tag>
-    </motion.div>
+      {children}
+    </Component>
   );
 }
 
