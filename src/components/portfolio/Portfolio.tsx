@@ -11,28 +11,37 @@ import ProjectsSection from "./ProjectsSection";
 import ContactSection from "./ContactSection";
 import Footer from "./Footer";
 import MobileActionBar from "./MobileActionBar";
+import { SECTIONS } from "@/constants";
 
 const Portfolio = () => {
   const [currentSection, setCurrentSection] = useState("hero");
 
   useEffect(() => {
-    const handleScroll = () => {
-       const sections = ["hero", "about", "skills", "experience", "projects", "contact"];
-       const scrollPosition = window.scrollY + 100;
+    let ticking = false;
 
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setCurrentSection(section);
-            break;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollPosition = window.scrollY + 100;
+
+          for (const section of SECTIONS) {
+            const element = document.getElementById(section);
+            if (element) {
+              const { offsetTop, offsetHeight } = element;
+              if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+                setCurrentSection(section);
+                break;
+              }
+            }
           }
-        }
+
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

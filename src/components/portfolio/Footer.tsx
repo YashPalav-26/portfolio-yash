@@ -1,15 +1,9 @@
-import { Github, Linkedin,  Instagram, Twitter } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Logo from "./Logo";
 import { Reveal } from "@/components/motion/Reveal";
+import { SOCIAL_LINKS } from "@/constants";
 
 const Footer = () => {
-  const socialLinks = [
-    { icon: Github, href: "https://github.com/YashPalav-26", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com/in/yashpalav/", label: "LinkedIn" },
-    { icon: Instagram, href: "https://www.instagram.com/_highkeyyash_/", label: "Instagram" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-  ];
 
   return (
     <footer className="relative mt-24">
@@ -24,7 +18,7 @@ const Footer = () => {
 
           <Reveal>
             <div className="flex justify-center gap-4 mb-6">
-              {socialLinks.map(({ icon: Icon, href, label }) => (
+              {SOCIAL_LINKS.map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
                   href={href}

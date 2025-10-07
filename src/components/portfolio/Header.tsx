@@ -2,18 +2,13 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
+import { NAV_ITEMS } from "@/constants";
 
 interface HeaderProps {
   onSectionClick: (section: string) => void;
 }
 
 const Header = ({ onSectionClick }: HeaderProps) => {
-  const navItems = [
-    { id: "about", label: "About" },
-    { id: "experience", label: "Experience" },
-    { id: "projects", label: "Projects" },
-    { id: "contact", label: "Contact" },
-  ];
 
   return (
     <header className="fixed top-0 w-full z-40 bg-background">
@@ -24,7 +19,7 @@ const Header = ({ onSectionClick }: HeaderProps) => {
           </div>
 
           <nav className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
+            {NAV_ITEMS.map((item) => (
               <button
                 key={item.id}
                 onClick={() => onSectionClick(item.id)}

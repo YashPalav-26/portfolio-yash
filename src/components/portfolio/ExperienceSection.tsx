@@ -70,7 +70,7 @@ const ExperienceSection = () => {
             <Reveal>
               <div className="neobrutalist-card p-8">
                 <div className="flex items-center mb-2">
-                  {experiences[selectedCompany] && experiences[selectedCompany].image && (
+                  {experiences[selectedCompany].image && (
                     <img
                       src={experiences[selectedCompany].image}
                       alt={experiences[selectedCompany].company}
@@ -78,7 +78,7 @@ const ExperienceSection = () => {
                     />
                   )}
                   <h3 className="text-xl font-bold text-foreground">
-                    {experiences[selectedCompany] && experiences[selectedCompany].role} @ <span className="text-primary">{experiences[selectedCompany] && experiences[selectedCompany].company}</span>
+                    {experiences[selectedCompany].role} @ <span className="text-primary">{experiences[selectedCompany].company}</span>
                   </h3>
                 </div>
                 <p className="text-sm font-mono text-gray-400 mt-1 mb-6">{experiences[selectedCompany].date}</p>

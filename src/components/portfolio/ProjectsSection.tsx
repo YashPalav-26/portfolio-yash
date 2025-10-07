@@ -103,14 +103,10 @@ const ProjectsSection = () => {
                   </div>
 
                   <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-secondary font-mono text-sm">
-                    {project.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="opacity-90"
-                      >
+                    {project.technologies.map((tech, index) => (
+                      <span key={tech} className="opacity-90">
                         {tech}
-                        {" "}
-                        {project.technologies.indexOf(tech) < project.technologies.length - 1 && (
+                        {index < project.technologies.length - 1 && (
                           <span className="mx-2 text-foreground/40">•</span>
                         )}
                       </span>

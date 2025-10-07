@@ -1,23 +1,19 @@
-import { Github, Linkedin, Instagram, Mail, FileText } from "lucide-react";
+import { Mail, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
+import { SOCIAL_LINKS, EMAIL } from "@/constants";
 
 const MobileActionBar = () => {
-  const socialLinks = [
-    { icon: Github, href: "https://github.com/YashPalav-26", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com/in/yashpalav/", label: "LinkedIn" },
-    { icon: Instagram, href: "https://www.instagram.com/_highkeyyash_/", label: "Instagram" },
-  ];
-
+  const mobileSocialLinks = SOCIAL_LINKS.slice(0, 3); // Only show GitHub, LinkedIn, Instagram
   const resumeHref = "/resume";
-  const mailHref = "mailto:yashpalav48@gmail.com";
+  const mailHref = `mailto:${EMAIL}`;
 
   return (
     <div className="md:hidden fixed bottom-0 inset-x-0 z-50">
       <div className="mx-4 mb-4 rounded-md border-2 border-border bg-background/90 backdrop-blur portfolio-glow">
         <div className="flex items-center justify-between px-4 py-2">
           <div className="flex items-center gap-4">
-            {socialLinks.map(({ icon: Icon, href, label }) => (
+            {mobileSocialLinks.map(({ icon: Icon, href, label }) => (
               <a
                 key={label}
                 href={href}
@@ -45,10 +41,10 @@ const MobileActionBar = () => {
           </div>
           <Link
             to={resumeHref}
-            className="neobrutalist-button px-3 py-2 text-xs leading-none inline-flex items-center gap-1"
+            className="neobrutalist-button neobrutalist-button-primary px-3 py-2 text-xs leading-none inline-flex items-center gap-1"
           >
-            <FileText size={16} />
-            Resume
+            <FileText size={16} className="relative z-10" />
+            <span className="relative z-10">Resume</span>
           </Link>
         </div>
       </div>

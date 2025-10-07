@@ -8,19 +8,19 @@ interface HeroSectionProps {
   onSectionClick: (section: string) => void;
 }
 
+const HERO_TEXTS = [
+  "Speedrun coder, RPG quest designer.",
+  "Driven by curiosity and coffee.",
+  "Cycling enthusiast on a code journey.", 
+  "Blendering creativity with code.",
+] as const;
+
 const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
   const [currentText, setCurrentText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
-  
-  const texts = [
-    "Speedrun coder, RPG quest designer.",
-    "Driven by curiosity and coffee.",
-    "Cycling enthusiast on a code journey.", 
-    "Blendering creativity with code.",
-  ];
 
   useEffect(() => {
-    const text = texts[currentIndex];
+    const text = HERO_TEXTS[currentIndex];
     let timeoutId: NodeJS.Timeout;
 
     if (currentText.length < text.length) {
@@ -30,12 +30,12 @@ const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
     } else {
       timeoutId = setTimeout(() => {
         setCurrentText("");
-        setCurrentIndex((prev) => (prev + 1) % texts.length);
+        setCurrentIndex((prev) => (prev + 1) % HERO_TEXTS.length);
       }, 2000);
     }
 
     return () => clearTimeout(timeoutId);
-  }, [currentText, currentIndex, texts]);
+  }, [currentText, currentIndex]);
 
   return (
     <section
@@ -76,15 +76,15 @@ const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
             <div className="relative z-10 flex flex-col sm:flex-row gap-6 justify-center md:justify-start mt-12">
               <button
                 onClick={() => onSectionClick("projects")}
-                className="neobrutalist-button px-8 py-4 text-lg"
+                className="neobrutalist-button neobrutalist-button-primary px-8 py-4 text-lg group"
               >
-                View My Work
+                <span className="relative z-10">View My Work</span>
               </button>
               <button
                 onClick={() => onSectionClick("contact")}
-                className="neobrutalist-button px-8 py-4 text-lg bg-secondary"
+                className="neobrutalist-button neobrutalist-button-secondary px-8 py-4 text-lg group"
               >
-                Get In Touch
+                <span className="relative z-10">Get In Touch</span>
               </button>
             </div>
           </Reveal>

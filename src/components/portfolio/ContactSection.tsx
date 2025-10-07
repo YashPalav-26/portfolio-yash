@@ -8,6 +8,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import emailjs from "@emailjs/browser";
 import { toast } from "@/components/ui/use-toast";
 import { Send } from "lucide-react";
+import { getEmailJSConfig } from "@/lib/env";
 
 const ContactSection = () => {
   const [name, setName] = useState("");
@@ -15,37 +16,37 @@ const ContactSection = () => {
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const formRef = useRef<HTMLFormElement | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSuccess(false);
     setError(false);
+    setIsLoading(true);
 
     try {
-      const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
-      const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
-      const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
-
-      if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
-        console.warn("EmailJS env vars are missing. Add VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, VITE_EMAILJS_PUBLIC_KEY to your .env.");
-        setError(true);
-        return;
-      }
+      const config = getEmailJSConfig();
 
       if (!formRef.current) {
         setError(true);
+        setIsLoading(false);
+        toast({
+          variant: "destructive",
+          title: "Form error",
+          description: "Please try refreshing the page.",
+        });
         return;
       }
 
-      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, {
-        publicKey: PUBLIC_KEY,
+      await emailjs.sendForm(config.serviceId, config.templateId, formRef.current, {
+        publicKey: config.publicKey,
       });
 
       setSuccess(true);
       toast({
         title: "Message sent",
-        description: "Thanks! I’ll get back to you soon.",
+        description: "Thanks! I'll get back to you soon.",
       });
       setName("");
       setEmail("");
@@ -59,6 +60,8 @@ const ContactSection = () => {
         title: "Something went wrong",
         description: "Please try again in a moment.",
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -130,9 +133,13 @@ const ContactSection = () => {
                 <input type="hidden" name="from_email" value={email} />
                 <input type="hidden" name="message" value={message} />
 
-                <Button type="submit" className="w-full neobrutalist-button inline-flex items-center justify-center gap-2">
-                  <span>Send Message</span>
-                  <Send size={16} />
+                <Button 
+                  type="submit" 
+                  disabled={isLoading}
+                  className="w-full neobrutalist-button neobrutalist-button-primary inline-flex items-center justify-center gap-2 text-base py-6"
+                >
+                  <span className="relative z-10">{isLoading ? "Sending..." : "Send Message"}</span>
+                  {!isLoading && <Send size={18} className="relative z-10" />}
                 </Button>
                 {success && (
                   <p role="status" aria-live="polite" className="text-sm mt-2 rounded-md border border-green-500/30 bg-green-500/10 text-green-400 px-3 py-2">Your message has been sent!</p>
