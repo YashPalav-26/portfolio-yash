@@ -1,81 +1,120 @@
-import { Download } from "lucide-react";
+import { Download, Code2, Bike, Music, Wrench, Lightbulb, Users, Heart } from "lucide-react";
 import Lottie from "lottie-react";
 import animationData from "../../assets/breakthrough-idea.json"; 
 import { Reveal } from "@/components/motion/Reveal";
 import { Link } from "react-router-dom";
 
 const AboutSection = () => {
+  const interests = [
+    { icon: Code2, label: "Coding", color: "primary" },
+    { icon: Bike, label: "Cycling", color: "secondary" },
+    { icon: Music, label: "Music", color: "primary" },
+    { icon: Wrench, label: "Crafting", color: "secondary" },
+    { icon: Lightbulb, label: "Problem Solving", color: "primary" },
+    { icon: Users, label: "Team Management", color: "secondary" },
+    { icon: Heart, label: "Mentoring", color: "primary" },
+  ];
+
   return (
-    <section id="about" className="min-h-screen py-16 px-4">
-<div className="container mx-auto max-w-6xl">
+    <section id="about" className="min-h-screen py-24 px-4 flex items-center">
+      <div className="container mx-auto max-w-6xl">
         <Reveal>
-          <h2 className="section-title text-center">About Me</h2>
+          <h2 className="section-title text-center mb-4">About Me</h2>
+          <p className="text-center text-foreground/60 max-w-2xl mx-auto mb-16">
+            Crafting digital experiences with passion and precision
+          </p>
         </Reveal>
 
-        <div className="grid md:grid-cols-12 gap-16 items-start mt-16">
-          <div className="md:col-span-6 space-y-6">
-            <Reveal>
-            <div className="relative overflow-hidden space-y-4 text-lg text-foreground/80 leading-relaxed neobrutalist-card p-8 md:p-10 rounded-xl border border-primary/20 shadow-lg">
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-              <p>
-                I'm a web developer with a strong foundation in modern technologies, driven by curiosity and a focus on craft. I enjoy turning ideas into reliable, polished experiences and contributing to teams that value quality and impact.
-              </p>
-
-              <p>
-                I earned a Diploma in Information Technology from Government Polytechnic Mumbai (91.52%), focusing on web development, programming, and database management, strengthened by hands-on, project-based learning.
-              </p>
-
-              <div className="mt-6">
-                <p className="mb-3 text-foreground/90">Outside of work, I enjoy:</p>
-                <div className="grid grid-cols-2 gap-2 text-sm">
-                  <div className="flex items-center">
-                    <span className="text-primary mr-2">▸</span>
-                    <span className="text-primary font-medium">Coding</span>
-                  </div>
-                  <div className="flex items-center">
-                    <span className="text-primary mr-2">▸</span>
-                    <span className="text-primary font-medium">Cycling</span>
-                  </div>
-                  <div className="flex items-center">
-                    <span className="text-primary mr-2">▸</span>
-                    <span className="text-primary font-medium">Listening to Music</span>
-                  </div>
-                  <div className="flex items-center">
-                    <span className="text-primary mr-2">▸</span>
-                    <span className="text-primary font-medium">Crafting</span>
-                  </div>
-                  <div className="flex items-center">
-                    <span className="text-primary mr-2">▸</span>
-                    <span className="text-primary font-medium">Problem Solving</span>
-                  </div>
-                  <div className="flex items-center">
-                    <span className="text-primary mr-2">▸</span>
-                    <span className="text-primary font-medium">Team Management</span>
-                  </div>
-                  <div className="flex items-center">
-                    <span className="text-primary mr-2">▸</span>
-                    <span className="text-primary font-medium">Mentoring</span>
-                  </div>
-                </div>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Column - Content */}
+          <div className="space-y-6">
+            <Reveal delay={0.1}>
+              <div className="neobrutalist-card p-8 space-y-4 relative group hover:-translate-y-1 transition-transform duration-300">
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-secondary to-primary opacity-70" />
+                <h3 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
+                  <span className="w-2 h-2 bg-primary" style={{ transform: 'rotate(45deg)' }} />
+                  Who I Am
+                </h3>
+                <p className="text-foreground/80 leading-relaxed">
+                  I'm a web developer with a strong foundation in modern technologies, driven by curiosity and a focus on craft. I enjoy turning ideas into reliable, polished experiences and contributing to teams that value quality and impact.
+                </p>
               </div>
-            </div>
             </Reveal>
 
-            <Reveal delay={0.1}>
-            <Link
-              className="neobrutalist-button px-6 py-3 inline-flex items-center gap-2 mt-8"
-              to="/resume"
-            >
-              <Download size={18} />
-              View Resume
-            </Link>
+            <Reveal delay={0.15}>
+              <div className="neobrutalist-card p-8 space-y-4 relative group hover:-translate-y-1 transition-transform duration-300">
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-secondary via-primary to-secondary opacity-70" />
+                <h3 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
+                  <span className="w-2 h-2 bg-secondary" style={{ transform: 'rotate(45deg)' }} />
+                  Education
+                </h3>
+                <div className="space-y-2">
+                  <p className="text-foreground font-semibold">Diploma in Information Technology</p>
+                  <p className="text-foreground/70">Government Polytechnic Mumbai</p>
+                  <div className="flex items-center gap-2 mt-2">
+                    <span className="neobrutalist-button text-gray-200 px-3 py-1 text-xs bg-primary/10 border-primary/40">
+                      91.52% Score
+                    </span>
+                  </div>
+                  <p className="text-foreground/80 text-sm mt-3 leading-relaxed">
+                    Focused on web development, programming, and database management through hands-on, project-based learning.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.2}>
+              <div className="neobrutalist-card p-8 relative group hover:-translate-y-1 transition-transform duration-300">
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary to-secondary opacity-70" />
+                <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
+                  <span className="w-2 h-2 bg-primary" style={{ transform: 'rotate(45deg)' }} />
+                  Beyond Code
+                </h3>
+                <div className="grid grid-cols-2 gap-3">
+                  {interests.map((interest, index) => {
+                    const Icon = interest.icon;
+                    return (
+                      <div
+                        key={interest.label}
+                        className="flex items-center gap-3 p-3 bg-background/40 border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-0.5 group/item"
+                        style={{ animationDelay: `${index * 0.05}s` }}
+                      >
+                        <div className={`p-2 bg-${interest.color}/10 border border-${interest.color}/30`}>
+                          <Icon size={16} className={`text-${interest.color}`} />
+                        </div>
+                        <span className="text-sm font-medium text-foreground/80 group-hover/item:text-foreground">
+                          {interest.label}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.25}>
+              <Link
+                className="neobrutalist-button neobrutalist-button-primary px-8 py-4 inline-flex items-center gap-3 text-lg group"
+                to="/resume"
+              >
+                <Download size={20} className="group-hover:animate-bounce relative z-10" />
+                <span className="relative z-10">View My Resume</span>
+              </Link>
             </Reveal>
           </div>
 
-          <div className="md:col-span-6 flex items-center justify-center -mt-24">
-            <Reveal delay={0.15}>
-              <div className="w-full flex items-center justify-end">
-                <Lottie animationData={animationData} loop={true} className="w-full h-auto" />
+          {/* Right Column - Animation */}
+          <div className="flex items-center justify-center lg:justify-end">
+            <Reveal delay={0.3}>
+              <div className="relative">
+                <div className="absolute inset-0 bg-primary/5 blur-3xl" />
+                <div className="relative neobrutalist-card p-6 bg-background/80 backdrop-blur-sm">
+                  <Lottie 
+                    animationData={animationData} 
+                    loop={true} 
+                    className="w-full h-auto max-w-lg" 
+                  />
+                </div>
               </div>
             </Reveal>
           </div>
