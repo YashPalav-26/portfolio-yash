@@ -125,6 +125,11 @@
 
   html {
     font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    touch-action: manipulation;
   }
   @media (min-width: 1280px) {
     html { font-size: 15.5px; }
@@ -147,9 +152,16 @@
     background: hsl(var(--background));
     min-height: 100vh;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
   }
   
-  /* Custom scrollbar */
+
   ::-webkit-scrollbar {
     width: 8px;
   }
@@ -169,7 +181,6 @@
 }
 
 @layer components {
-  /* Neobrutalist utility classes */
   .portfolio-glow {
     box-shadow: var(--shadow-glow);
   }
@@ -264,7 +275,7 @@
     @apply text-4xl md:text-5xl font-black mb-8 text-foreground;
   }
 
-  /* Responsive neobrutalist utilities */
+
   .neobrutalist-mobile {
     @apply px-4 py-3 text-sm md:px-6 md:py-4 md:text-base;
   }
@@ -273,7 +284,6 @@
     @apply portfolio-card p-6 md:p-8;
   }
 
-  /* Enhanced hover effects for neobrutalist */
   .neobrutalist-hover {
     transition: all 0.2s ease-in-out;
   }
@@ -283,7 +293,7 @@
     box-shadow: 12px 12px 0px hsl(var(--border));
   }
 
-  /* Mobile-first responsive typography */
+
   @media (max-width: 640px) {
     .section-title {
       @apply text-4xl;
@@ -301,13 +311,13 @@
     animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
   }
 
-  /* Clamped typography to prevent oversized text on very large screens */
+
   .text-hero {
-    font-size: clamp(2.25rem, 6vw, 4.5rem); /* ~36px -> 72px */
+    font-size: clamp(2.25rem, 6vw, 4.5rem); 
     line-height: 1.1;
   }
   .text-hero-sub {
-    font-size: clamp(1rem, 2.2vw, 1.875rem); /* ~16px -> 30px */
+    font-size: clamp(1rem, 2.2vw, 1.875rem); 
     line-height: 1.25;
   }
   
@@ -335,7 +345,7 @@
     @apply bg-primary;
   }
 
-  /* Skill Cards */
+
   .skill-card {
     @apply bg-background border-2 border-border hover:border-primary transition-all duration-300;
     box-shadow: var(--shadow-brutal);
@@ -350,7 +360,7 @@
     @apply transition-all duration-300;
   }
 
-  /* Modern skills container */
+
   .skills-shell {
     position: relative;
     background: linear-gradient(145deg, hsl(var(--card)), hsl(210 25% 22%));
@@ -378,7 +388,7 @@
 }
 
 @layer utilities {
-  /* Animation keyframes */
+
   @keyframes typing {
     from { width: 0; }
     to { width: 100%; }
