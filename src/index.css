@@ -124,7 +124,8 @@
   }
 
   html {
-    font-size: 16px;
+    /* Base font size scaled to 90% to make content appear smaller */
+    font-size: 14.4px; /* 16px * 0.9 = 90% zoom effect */
     -webkit-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
@@ -132,19 +133,19 @@
     touch-action: manipulation;
   }
   @media (min-width: 1280px) {
-    html { font-size: 15.5px; }
+    html { font-size: 13.95px; } /* 15.5px * 0.9 */
   }
   @media (min-width: 1440px) {
-    html { font-size: 15px; }
+    html { font-size: 13.5px; } /* 15px * 0.9 */
   }
   @media (min-width: 1680px) {
-    html { font-size: 14.5px; }
+    html { font-size: 13.05px; } /* 14.5px * 0.9 */
   }
   @media (min-width: 1920px) {
-    html { font-size: 14px; }
+    html { font-size: 12.6px; } /* 14px * 0.9 */
   }
   @media (min-width: 2560px) {
-    html { font-size: 13.5px; }
+    html { font-size: 12.15px; } /* 13.5px * 0.9 */
   }
 
   body {
@@ -313,11 +314,11 @@
 
 
   .text-hero {
-    font-size: clamp(2.25rem, 6vw, 4.5rem); 
+    font-size: clamp(2.025rem, 5.4vw, 4.05rem); /* 90% of original: 2.25rem -> 2.025rem, 6vw -> 5.4vw, 4.5rem -> 4.05rem */
     line-height: 1.1;
   }
   .text-hero-sub {
-    font-size: clamp(1rem, 2.2vw, 1.875rem); 
+    font-size: clamp(0.9rem, 1.98vw, 1.6875rem); /* 90% of original: 1rem -> 0.9rem, 2.2vw -> 1.98vw, 1.875rem -> 1.6875rem */
     line-height: 1.25;
   }
   
