@@ -1,4 +1,4 @@
-import { Download, Code2, Bike, Music, Wrench, Lightbulb, Users, Heart } from "lucide-react";
+import { Download, Code2, Bike, Music, Wrench, Lightbulb, Users, Heart, Globe2, Brain } from "lucide-react";
 import Lottie from "lottie-react";
 import animationData from "../../assets/breakthrough-idea.json"; 
 import { Reveal } from "@/components/motion/Reveal";
@@ -6,13 +6,14 @@ import { Link } from "react-router-dom";
 
 const AboutSection = () => {
   const interests = [
-    { icon: Code2, label: "Coding", color: "primary" },
+    { icon: Brain, label: "Continuous Learning", color: "primary" },
     { icon: Bike, label: "Cycling", color: "secondary" },
     { icon: Music, label: "Music", color: "primary" },
     { icon: Wrench, label: "Crafting", color: "secondary" },
     { icon: Lightbulb, label: "Problem Solving", color: "primary" },
-    { icon: Users, label: "Team Management", color: "secondary" },
+    { icon: Users, label: "Team Leadership", color: "secondary" },
     { icon: Heart, label: "Mentoring", color: "primary" },
+    { icon: Globe2, label: "Travelling", color: "secondary" },
   ];
 
   return (
@@ -26,7 +27,7 @@ const AboutSection = () => {
         </Reveal>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Content */}
+
           <div className="space-y-6">
             <Reveal delay={0.1}>
               <div className="neobrutalist-card p-8 space-y-4 relative group hover:-translate-y-1 transition-transform duration-300">
@@ -52,8 +53,8 @@ const AboutSection = () => {
                   <p className="text-foreground font-semibold">Diploma in Information Technology</p>
                   <p className="text-foreground/70">Government Polytechnic Mumbai</p>
                   <div className="flex items-center gap-2 mt-2">
-                    <span className="neobrutalist-button text-gray-200 px-3 py-1 text-xs bg-primary/10 border-primary/40">
-                      91.52% Score
+                    <span className="stat-badge text-xs">
+                      91.52% SCORE
                     </span>
                   </div>
                   <p className="text-foreground/80 text-sm mt-3 leading-relaxed">
@@ -103,7 +104,7 @@ const AboutSection = () => {
             </Reveal>
           </div>
 
-          {/* Right Column - Animation */}
+
           <div className="flex items-center justify-center lg:justify-end">
             <Reveal delay={0.3}>
               <div className="relative">

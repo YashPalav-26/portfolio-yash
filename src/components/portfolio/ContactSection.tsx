@@ -83,7 +83,6 @@ const ContactSection = () => {
             <div className="neobrutalist-card p-8 relative overflow-hidden rounded-xl border border-primary/20 shadow-lg">
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-                {/* Visible inputs used by the user */}
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <Label htmlFor="name" className="text-foreground/80">Name</Label>
