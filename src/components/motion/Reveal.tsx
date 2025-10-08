@@ -39,8 +39,6 @@ export function Reveal({
         },
       };
 
-  // Using motion.div as a wrapper is necessary for the animation to work properly
-  // The 'as' prop allows customizing the wrapper element if needed
   const Component = motion[Tag] || motion.div;
 
   return (
