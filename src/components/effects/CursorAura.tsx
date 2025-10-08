@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useTheme } from "@/contexts/ThemeContext";
 
 function lerp(start: number, end: number, amt: number) {
   return start + (end - start) * amt;
@@ -12,6 +13,7 @@ function isFinePointer() {
 const interactiveSelector = "a, button, [role='button'], input, textarea, select, .interactive";
 
 export default function CursorAura() {
+  const { theme } = useTheme();
   const [enabled, setEnabled] = useState(false);
   const dotRef = useRef<HTMLDivElement>(null);
   const auraRef = useRef<HTMLDivElement>(null);
@@ -88,25 +90,41 @@ export default function CursorAura() {
       }
       if (auraRef.current) {
         const scale = downRef.current ? 0.95 : hoverRef.current ? 1.08 : 1;
-        const color = hoverRef.current ? "var(--secondary)" : "var(--primary)";
+        const opacity = theme === "light" ? (hoverRef.current ? "0.7" : "0.5") : (hoverRef.current ? "0.9" : "0.65");
+        const intensity = theme === "light" ? "0.35" : "0.40";
+        
+        let gradientColor;
+        if (theme === "light") {
+          
+          gradientColor = hoverRef.current 
+            ? `rgba(255, 164, 164, ${intensity})` 
+            : `rgba(11, 102, 106, ${intensity})`; 
+        } else {
+          
+          const color = hoverRef.current ? "var(--secondary)" : "var(--primary)";
+          gradientColor = `hsl(${color}/${intensity})`;
+        }
+        
         auraRef.current.style.transform = `translate3d(${posAura.current.x}px, ${posAura.current.y}px, 0) translate(-50%, -50%) scale(${scale})`;
-        auraRef.current.style.opacity = hoverRef.current ? "0.9" : "0.65";
-        auraRef.current.style.background = `radial-gradient(35% 35% at 50% 50%, hsl(${color}/0.40) 0%, transparent 70%)`;
+        auraRef.current.style.opacity = opacity;
+        auraRef.current.style.background = `radial-gradient(35% 35% at 50% 50%, ${gradientColor} 0%, transparent 70%)`;
       }
       if (ringRef.current) {
         const scale = downRef.current ? 0.9 : hoverRef.current ? 1.05 : 1;
+        const borderOpacity = theme === "light" ? "0.5" : "0.6";
+        const borderColor = theme === "light" ? `rgba(11, 102, 106, ${borderOpacity})` : `hsl(var(--primary)/${borderOpacity})`;
         ringRef.current.style.transform = `translate3d(${posAura.current.x}px, ${posAura.current.y}px, 0) translate(-50%, -50%) rotate(${angleRef.current}deg) scale(${scale})`;
-        ringRef.current.style.borderColor = "hsl(var(--primary)/0.6)";
+        ringRef.current.style.borderColor = borderColor;
       }
 
-      // update ghosts (soft trail)
+
       for (let i = 0; i < GHOSTS; i++) {
         const el = ghostsRef.current[i];
         if (!el) continue;
         const idx = historyRef.current.length - 1 - (i + 1) * 3;
         const p = historyRef.current[Math.max(0, Math.min(historyRef.current.length - 1, idx))] || posAura.current;
-        const size = 7 - i; // 6,5,4,3
-        const opacity = 0.16 - i * 0.03; // 0.16 -> 0.07
+        const size = 7 - i; 
+        const opacity = 0.16 - i * 0.03; 
         el.style.width = `${size}px`;
         el.style.height = `${size}px`;
         el.style.opacity = `${opacity}`;
@@ -127,21 +145,31 @@ export default function CursorAura() {
 
   if (!enabled) return null;
 
+  const isLight = theme === "light";
+  const lightTeal = "rgba(11, 102, 106, 0.35)";
+  const lightTealRing = "rgba(11, 102, 106, 0.5)";
+  
   return (
     <>
       <div
         ref={auraRef}
         className="pointer-events-none fixed z-50 h-14 w-14 rounded-full"
         style={{
-          background: "radial-gradient(35% 35% at 50% 50%, hsl(var(--primary)/0.40) 0%, transparent 70%)",
-          mixBlendMode: "screen",
+          background: isLight 
+            ? `radial-gradient(35% 35% at 50% 50%, ${lightTeal} 0%, transparent 70%)`
+            : "radial-gradient(35% 35% at 50% 50%, hsl(var(--primary)/0.40) 0%, transparent 70%)",
+          mixBlendMode: isLight ? "multiply" : "screen",
           transition: "opacity 120ms ease",
         }}
       />
       <div
         ref={ringRef}
         className="pointer-events-none fixed z-50 h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border"
-        style={{ borderWidth: "1px", mixBlendMode: "screen" }}
+        style={{ 
+          borderWidth: "1px", 
+          borderColor: isLight ? lightTealRing : undefined,
+          mixBlendMode: isLight ? "multiply" : "screen" 
+        }}
       />
       {Array.from({ length: GHOSTS }).map((_, i) => (
         <div
@@ -149,13 +177,21 @@ export default function CursorAura() {
           ref={(el) => {
             if (el) ghostsRef.current[i] = el;
           }}
-          className="pointer-events-none fixed z-50 rounded-full bg-primary shadow-[0_0_6px_hsl(var(--primary)/0.6)]"
-          style={{ opacity: 0.08 }}
+          className="pointer-events-none fixed z-50 rounded-full"
+          style={{ 
+            opacity: 0.08,
+            background: isLight ? "rgba(11, 102, 106, 0.8)" : "hsl(var(--primary))",
+            boxShadow: isLight ? "0 0 6px rgba(11, 102, 106, 0.6)" : "0 0 6px hsl(var(--primary)/0.6)"
+          }}
         />
       ))}
       <div
         ref={dotRef}
-        className="pointer-events-none fixed z-50 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary shadow-[0_0_10px_hsl(var(--primary)/0.9)]"
+        className="pointer-events-none fixed z-50 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full"
+        style={{
+          background: isLight ? "rgba(11, 102, 106, 1)" : "hsl(var(--primary))",
+          boxShadow: isLight ? "0 0 10px rgba(11, 102, 106, 0.9)" : "0 0 10px hsl(var(--primary)/0.9)"
+        }}
       />
     </>
   );
