@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
 import { NAV_ITEMS } from "@/constants";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 
 interface HeaderProps {
   onSectionClick: (section: string) => void;
@@ -32,6 +33,7 @@ const Header = ({ onSectionClick }: HeaderProps) => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </button>
             ))}
+            <ThemeToggle />
             <Button
               asChild
               variant="outline"
