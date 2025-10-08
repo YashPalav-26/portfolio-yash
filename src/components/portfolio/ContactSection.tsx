@@ -125,7 +125,6 @@ const ContactSection = () => {
                   />
                 </div>
 
-                {/* Hidden mirrors to support common EmailJS template variable names */}
                 <input type="hidden" name="user_name" value={name} />
                 <input type="hidden" name="from_name" value={name} />
                 <input type="hidden" name="reply_to" value={email} />
