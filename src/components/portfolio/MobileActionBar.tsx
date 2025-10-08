@@ -2,6 +2,7 @@ import { Mail, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 import { SOCIAL_LINKS, EMAIL } from "@/constants";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 
 const MobileActionBar = () => {
   const mobileSocialLinks = SOCIAL_LINKS.slice(0, 3); // Only show GitHub, LinkedIn, Instagram
@@ -39,13 +40,16 @@ const MobileActionBar = () => {
               <Mail size={20} />
             </a>
           </div>
-          <Link
-            to={resumeHref}
-            className="neobrutalist-button neobrutalist-button-primary px-3 py-2 text-xs leading-none inline-flex items-center gap-1"
-          >
-            <FileText size={16} className="relative z-10" />
-            <span className="relative z-10">Resume</span>
-          </Link>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <Link
+              to={resumeHref}
+              className="neobrutalist-button neobrutalist-button-primary px-3 py-2 text-xs leading-none inline-flex items-center gap-1"
+            >
+              <FileText size={16} className="relative z-10" />
+              <span className="relative z-10">Resume</span>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
