@@ -6,7 +6,6 @@ const LoadingScreen = () => {
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
-    // Simulate loading progress
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
@@ -14,7 +13,6 @@ const LoadingScreen = () => {
           setTimeout(() => setIsComplete(true), 500);
           return 100;
         }
-        // Faster initial progress, slower near end for realism
         const increment = prev < 60 ? Math.random() * 15 + 10 : Math.random() * 5 + 2;
         return Math.min(prev + increment, 100);
       });
@@ -34,7 +32,6 @@ const LoadingScreen = () => {
         className="fixed inset-0 z-[9999] flex items-center justify-center bg-background"
       >
         <div className="relative flex flex-col items-center gap-8">
-          {/* Animated Logo/Name */}
           <motion.div
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -124,16 +121,13 @@ const LoadingScreen = () => {
             </div>
           </motion.div>
 
-          {/* Progress Bar */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5 }}
             className="w-64 md:w-96"
           >
-            {/* Progress Container */}
             <div className="relative h-3 bg-background border-3 border-border overflow-hidden">
-              {/* Progress Fill with Gradient */}
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: `${progress}%` }}
@@ -143,7 +137,6 @@ const LoadingScreen = () => {
                   background: "linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)))",
                 }}
               >
-                {/* Animated Shine Effect on Progress Bar */}
                 <motion.div
                   animate={{
                     x: ["-100%", "200%"],
@@ -160,11 +153,11 @@ const LoadingScreen = () => {
                 />
               </motion.div>
 
-              {/* Blocky Progress Shadow */}
+
               <div className="absolute -bottom-1 -right-1 w-full h-full border-3 border-border -z-10" />
             </div>
 
-            {/* Progress Percentage */}
+
             <motion.div
               className="mt-3 text-center"
               key={Math.floor(progress)}
@@ -175,7 +168,6 @@ const LoadingScreen = () => {
             </motion.div>
           </motion.div>
 
-          {/* Floating Code Symbols */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
             {["</>", "{}", "[]", "( )", "=>", "&&"].map((symbol, i) => (
               <motion.div
@@ -203,7 +195,6 @@ const LoadingScreen = () => {
             ))}
           </div>
 
-          {/* Corner Decorations */}
           <div className="fixed top-8 left-8">
             <motion.div
               animate={{ rotate: [0, 90, 90, 0] }}
