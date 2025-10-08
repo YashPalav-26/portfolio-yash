@@ -30,6 +30,7 @@ import {
 } from "react-icons/si";
 import { TbBrandVercel } from "react-icons/tb";
 import { Reveal, FadeInStagger, FadeInItem } from "@/components/motion/Reveal";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const BRAND_COLORS: Record<string, string> = {
   "HTML": "#E34F26",
@@ -103,6 +104,8 @@ const skills = [
 ];
 
 const SkillsSection = () => {
+  const { theme } = useTheme();
+  
   return (
     <section id="skills" className="py-16 px-4">
 <div className="container mx-auto max-w-6xl">
@@ -120,6 +123,11 @@ const SkillsSection = () => {
               {skills.map((skill) => {
                 const IconComponent = skill.icon;
                 const color = BRAND_COLORS[skill.name] || 'currentColor';
+                const isWhiteBrand = color === "#FFFFFF";
+                const iconColor = isWhiteBrand 
+                  ? (theme === "light" ? "#1e293b" : "#e2e8f0")
+                  : color;
+                
                 return (
                   <FadeInItem
                     key={skill.name}
@@ -129,13 +137,19 @@ const SkillsSection = () => {
                   >
                     <div className="relative mb-2">
                       <div
-                        className="w-12 h-12 mx-auto rounded-lg flex items-center justify-center mb-2 transition-all"
+                        className={cn(
+                          "w-12 h-12 mx-auto rounded-lg flex items-center justify-center mb-2 transition-all",
+                          isWhiteBrand && "icon-dark-bg"
+                        )}
                         style={{
-                          background: `linear-gradient(135deg, ${alpha(color,0.22)}, ${alpha('#000000',0)})`,
-                          boxShadow: `0 0 0 1px ${alpha(color,0.45)}`,
+                          background: !isWhiteBrand ? `linear-gradient(135deg, ${alpha(color,0.22)}, ${alpha('#000000',0)})` : undefined,
+                          boxShadow: !isWhiteBrand ? `0 0 0 1px ${alpha(color, 0.45)}` : undefined,
                         }}
                       >
-                        <IconComponent className="w-6 h-6" style={{ color }} />
+                        <IconComponent 
+                          className="w-6 h-6" 
+                          style={{ color: iconColor }} 
+                        />
                       </div>
                       <span className="pointer-events-none absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: `radial-gradient(120px 60px at 20% 0%, ${alpha(color,0.18)}, transparent 60%)` }} />
                     </div>
