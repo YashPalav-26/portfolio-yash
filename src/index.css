@@ -384,6 +384,79 @@
     border-color: hsl(var(--primary));
   }
 
+  /* Minimal Geometric Resume Button */
+  .resume-button-minimal {
+    @apply px-5 py-2.5;
+    border: 2px solid hsl(var(--primary));
+    background: hsl(var(--primary));
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    clip-path: polygon(
+      0 0,
+      calc(100% - 10px) 0,
+      100% 10px,
+      100% 100%,
+      10px 100%,
+      0 calc(100% - 10px)
+    );
+  }
+
+  .resume-button-minimal::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent, hsl(var(--primary-foreground) / 0.1));
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 0;
+    opacity: 0;
+  }
+
+  .resume-button-minimal:hover {
+    background: hsl(var(--primary) / 0.9);
+    border-color: hsl(var(--primary) / 0.9);
+    transform: translateX(4px);
+  }
+
+  .resume-button-minimal:hover::before {
+    opacity: 1;
+  }
+
+  .resume-button-minimal:active {
+    transform: translateX(2px);
+    transition-duration: 0.1s;
+  }
+
+  .resume-button-minimal:focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 4px;
+  }
+
+  /* Light mode adjustments */
+  .light .resume-button-minimal {
+    background: hsl(174 45% 45%);
+    border-color: hsl(174 45% 45%);
+  }
+
+  .light .resume-button-minimal:hover {
+    background: hsl(174 45% 40%);
+    border-color: hsl(174 45% 40%);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .resume-button-minimal {
+      @apply px-4 py-2;
+      clip-path: polygon(
+        0 0,
+        calc(100% - 8px) 0,
+        100% 8px,
+        100% 100%,
+        8px 100%,
+        0 calc(100% - 8px)
+      );
+    }
+  }
+
   .section-number {
     @apply text-lg font-mono text-primary mb-4 tracking-wider;
   }
