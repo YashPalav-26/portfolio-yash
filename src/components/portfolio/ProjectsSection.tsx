@@ -1,6 +1,7 @@
 import { Github, ExternalLink } from "lucide-react";
-import cssProjectImage from "@/assets/ledger.png";
+import ledgerProjectImage from "@/assets/ledger.png";
 import apexscriptImage from "@/assets/apexscript.png";
+import tradeproImage from "@/assets/tradepro.png"
 import { Reveal, FadeInStagger, FadeInItem } from "@/components/motion/Reveal";
 
 const ProjectsSection = () => {
@@ -8,7 +9,7 @@ const ProjectsSection = () => {
     {
       title: "Ledger",
       description: "Ledger is a responsive web application that allows users to create, manage, and organize their notes. It features user authentication, a clean dashboard interface, and a RESTful API for note management operations.",
-      image: cssProjectImage,
+      image: ledgerProjectImage,
       technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "MySQL", "JWT"],
       github: "https://github.com/YashPalav-26/Ledger",
       live: "https://ledger-notesmanager.vercel.app/",
@@ -21,6 +22,14 @@ const ProjectsSection = () => {
       github: "https://github.com/YashPalav-26/ApexScript-CodeEditor",
       live: "https://yash-apexscript.vercel.app",
     },
+    {
+      title: "TradePro",
+      description: "TradePro is a feature-rich, simulated trading platform designed to provide users with a realistic yet risk-free environment to practice trading strategies, monitor market data, and manage virtual portfolios.",
+      image: tradeproImage,
+      technologies: ["Next.js", "TypeScript", "Node.js", "MongoDB", "JWT"],
+      github: "https://github.com/YashPalav-26/TradePro",
+      live: "https://yash-tradepro.vercel.app/",
+    },
   ];
 
   const otherProjects = [
@@ -30,6 +39,13 @@ const ProjectsSection = () => {
       technologies: ["Node.js", "Express.js", "MongoDB", "JWT"],
       github: "https://github.com/YashPalav-26/ContactManagerBackend",
       live: "#",
+    },
+    {
+      title: "Daisy Flappy",
+      description: "A modern, browser-based Flappy Bird game built with React, Vite, and DaisyUI. Experience the classic arcade gameplay with stunning visuals, multiple themes, and immersive audio in this fully-featured web application.",
+      technologies: ["React", "Vite", "Daisy UI"],
+      github: "https://github.com/YashPalav-26/daisy-flappy",
+      live: "https://daisyflappy.vercel.app/",
     },
     {
       title: "Library Management System",
@@ -44,13 +60,6 @@ const ProjectsSection = () => {
       technologies: ["React.js", "Redux Toolkit", "Local Storage"],
       github: "https://github.com/YashPalav-26/TodoReact",
       live: "https://yash-taskmaster.netlify.app",
-    },
-    {
-      title: "TradePro",
-      description: "TradePro is a feature-rich, simulated trading platform designed to provide users with a realistic yet risk-free environment to practice trading strategies, monitor market data, and manage virtual portfolios.",
-      technologies: ["Next.js", "TypeScript", "Node.js", "MongoDB", "JWT"],
-      github: "https://github.com/YashPalav-26/TradePro",
-      live: "https://yash-tradepro.vercel.app/",
     },
     {
       title: "Climate-Insight",
