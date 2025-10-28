@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import Lottie from "lottie-react";
-import heroAnimationData from "../../assets/business-ideas.json";
+import heroAnimationData from "../../assets/hero-page-animation.json";
 import { Reveal } from "@/components/motion/Reveal";
 
 interface HeroSectionProps {
