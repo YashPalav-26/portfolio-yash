@@ -1,6 +1,6 @@
 import { Download, Code2, Bike, Music, Wrench, Lightbulb, Users, Heart, Globe2, Brain } from "lucide-react";
 import Lottie from "lottie-react";
-import animationData from "../../assets/breakthrough-idea.json"; 
+import animationData from "../../assets/astronaut-with-space-shuttle.json"; 
 import { Reveal } from "@/components/motion/Reveal";
 import { Link } from "react-router-dom";
 
