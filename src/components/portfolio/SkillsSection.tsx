@@ -25,7 +25,8 @@ import {
   SiGit,
   SiGithub,
   SiVite,
-  SiPostman
+  SiPostman,
+  SiBruno
   , SiBun
 } from "react-icons/si";
 import { TbBrandVercel } from "react-icons/tb";
@@ -59,6 +60,7 @@ const BRAND_COLORS: Record<string, string> = {
   "Vite": "#646CFF",
   "Bun": "#FFFFFF",
   "Postman": "#FF6C37",
+  "Bruno":"#FFC50F",
   "Vercel": "#FFFFFF",
   "Blender": "#F5792A",
 };
@@ -99,6 +101,7 @@ const skills = [
     { name: "Vite", icon: SiVite },
     { name: "Bun", icon: SiBun },
     { name: "Postman", icon: SiPostman },
+    {name: "Bruno", icon: SiBruno},
     { name: "Vercel", icon: TbBrandVercel },
     { name: "Blender", icon: SiBlender },
 ];
