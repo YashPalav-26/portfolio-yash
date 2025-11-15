@@ -67,7 +67,7 @@ const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
           <Reveal delay={0.15}>
             <div className="max-w-2xl mx-auto md:mx-0">
               <p className="text-lg leading-relaxed text-foreground/80">
-                I’m a web developer who treats every project like a new game level to conquer — blending speed, strategy, and creativity to build experiences that stand out. With a strong foundation in modern web technologies, I love crafting immersive web experiences, often experimenting with 3D models in Blender and integrating them into interactive UIs.
+                I’m a web developer who treats every project like a new game level to conquer blending speed, strategy, and creativity to build experiences that stand out. With a strong foundation in modern web technologies, I love crafting immersive web experiences, often experimenting with 3D models in Blender and integrating them into interactive UIs.
               </p>
             </div>
           </Reveal>
