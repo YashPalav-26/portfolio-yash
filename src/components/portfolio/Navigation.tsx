@@ -9,6 +9,7 @@ const Navigation = ({ currentSection, onSectionClick }: NavigationProps) => {
   const navItems = [
     { id: "hero", label: "" },
     { id: "about", label: "" },
+    { id: "skills", label: "" },
     { id: "experience", label: "" },
     { id: "projects", label: "" },
     { id: "contact", label: "" },
