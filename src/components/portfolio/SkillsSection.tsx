@@ -121,7 +121,7 @@ const SkillsSection = () => {
           </p>
         </Reveal>
         <Reveal>
-          <div className="skills-shell mt-16 p-8 dot-grid">
+          <div className="skills-shell mt-16 p-8 dot-grid" style={theme === 'light' ? { backgroundImage: 'radial-gradient(hsl(185 65% 50% / 0.30) 1px, transparent 1px)', backgroundSize: '22px 22px', backgroundPosition: '-10px -10px' } : undefined}>
             <FadeInStagger className="flex flex-wrap justify-center gap-5">
               {skills.map((skill) => {
                 const IconComponent = skill.icon;
