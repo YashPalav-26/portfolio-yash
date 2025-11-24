@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Logo from "./portfolio/Logo";
 
 const LoadingScreen = () => {
   const [progress, setProgress] = useState(0);
@@ -38,56 +39,60 @@ const LoadingScreen = () => {
             transition={{ duration: 0.5 }}
             className="relative"
           >
-            {/* Main Name with Glitch Effect */}
-            <div className="relative">
-              <motion.h1
-                className="text-6xl md:text-8xl font-black text-foreground relative z-10"
-                style={{ textShadow: "4px 4px 0px hsl(var(--primary))" }}
-              >
-                YP
-              </motion.h1>
-              
-              {/* Glitch layers */}
-              <motion.h1
+            {/* Animated Logo */}
+            <motion.div
+              animate={{
+                scale: [1, 1.05, 1],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="relative z-10"
+            >
+              <motion.div
                 animate={{
-                  x: [0, -2, 2, -2, 0],
-                  opacity: [0.7, 0.8, 0.7],
+                  y: [0, -10, 0],
                 }}
                 transition={{
-                  duration: 0.3,
+                  duration: 3,
                   repeat: Infinity,
-                  repeatDelay: 2,
+                  ease: "easeInOut",
                 }}
-                className="absolute inset-0 text-6xl md:text-8xl font-black text-primary opacity-70"
-                style={{ clipPath: "polygon(0 0, 100% 0, 100% 45%, 0 45%)" }}
               >
-                YP
-              </motion.h1>
-              
-              <motion.h1
-                animate={{
-                  x: [0, 2, -2, 2, 0],
-                  opacity: [0.7, 0.8, 0.7],
-                }}
-                transition={{
-                  duration: 0.3,
-                  repeat: Infinity,
-                  repeatDelay: 2,
-                  delay: 0.1,
-                }}
-                className="absolute inset-0 text-6xl md:text-8xl font-black text-secondary opacity-70"
-                style={{ clipPath: "polygon(0 55%, 100% 55%, 100% 100%, 0 100%)" }}
-              >
-                YP
-              </motion.h1>
-            </div>
+                <Logo size="lg" className="w-32 h-32 md:w-40 md:h-40" />
+              </motion.div>
+            </motion.div>
+
+            {/* Glowing Ring Effect */}
+            <motion.div
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.3, 0.6, 0.3],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute inset-0 -m-4 rounded-full border-3 border-primary/40 blur-sm"
+            />
 
             {/* Rotating Border Frame */}
             <motion.div
               animate={{ rotate: 360 }}
-              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-              className="absolute -inset-4 border-4 border-primary/30"
+              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              className="absolute -inset-4 border-3 border-primary/30"
               style={{ clipPath: "polygon(0 0, 100% 0, 100% 10%, 0 10%, 0 90%, 100% 90%, 100% 100%, 0 100%)" }}
+            />
+
+            {/* Counter-Rotating Accent */}
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+              className="absolute -inset-3 border-2 border-secondary/20"
+              style={{ clipPath: "polygon(10% 0, 90% 0, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0 90%, 0 10%)" }}
             />
           </motion.div>
 
@@ -172,7 +177,7 @@ const LoadingScreen = () => {
             {["</>", "{}", "[]", "( )", "=>", "&&"].map((symbol, i) => (
               <motion.div
                 key={i}
-                initial={{ 
+                initial={{
                   opacity: 0,
                   x: `${Math.random() * 100}%`,
                   y: "100%",
