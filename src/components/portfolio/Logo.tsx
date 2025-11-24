@@ -39,7 +39,7 @@ const Logo = ({ className, size = "md" }: LogoProps) => {
 
         {/* Center diamond */}
         <polygon
-          points="100,95 115,110 100,125 85,110"
+          points="100,102 115,117 100,132 85,117"
           fill="currentColor"
           stroke="currentColor"
           strokeWidth="6"
