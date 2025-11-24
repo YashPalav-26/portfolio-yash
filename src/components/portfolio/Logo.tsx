@@ -15,29 +15,38 @@ const Logo = ({ className, size = "md" }: LogoProps) => {
   return (
     <div className={cn("relative", sizeClasses[size], className)}>
       <svg
-        viewBox="0 0 24 24"
-        fill="none"
+        viewBox="0 0 200 150"
         xmlns="http://www.w3.org/2000/svg"
         className="w-full h-full"
       >
+        {/* Wing outlines */}
         <path
-          d="M12 2L21 7V17L12 22L3 17V7L12 2Z"
-          stroke="currentColor"
-          strokeWidth="1.5"
+          d="M20 20 L90 70 L100 95 L60 70 Z"
           fill="none"
-          className="text-primary"
+          stroke="currentColor"
+          strokeWidth="8"
+          strokeLinejoin="round"
+          className="text-foreground"
         />
         <path
-          d="M12 2L21 7V17L12 22L3 17V7L12 2Z"
+          d="M180 20 L110 70 L100 95 L140 70 Z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="8"
+          strokeLinejoin="round"
+          className="text-foreground"
+        />
+
+        {/* Center diamond */}
+        <polygon
+          points="100,95 115,110 100,125 85,110"
           fill="currentColor"
-          fillOpacity="0.1"
+          stroke="currentColor"
+          strokeWidth="6"
+          strokeLinejoin="round"
           className="text-primary"
         />
       </svg>
-
-      <div className="absolute inset-0 flex items-center justify-center">
-        <span className="text-primary font-bold text-sm">Y</span>
-      </div>
     </div>
   );
 };
