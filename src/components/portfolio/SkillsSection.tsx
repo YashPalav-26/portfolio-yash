@@ -26,143 +26,173 @@ import {
   SiGithub,
   SiVite,
   SiPostman,
-  SiBruno
-  , SiBun
+  SiBruno,
+  SiBun
 } from "react-icons/si";
 import { TbBrandVercel } from "react-icons/tb";
-import { Reveal, FadeInStagger, FadeInItem } from "@/components/motion/Reveal";
+import { Reveal, FadeInStagger, FadeInItem } from "@/components/animations/Reveal";
 import { useTheme } from "@/contexts/ThemeContext";
+import DotGrid from "@/components/animations/DotGrid";
 
 const BRAND_COLORS: Record<string, string> = {
-  "HTML": "#E34F26",
-  "CSS": "#1572B6",
-  "JavaScript": "#F7DF1E",
-  "TypeScript": "#3178C6",
+  HTML: "#E34F26",
+  CSS: "#1572B6",
+  JavaScript: "#F7DF1E",
+  TypeScript: "#3178C6",
   "React.js": "#61DAFB",
-  "Redux": "#764ABC",
+  Redux: "#764ABC",
   "React Router": "#CA4245",
   "Next.js": "#FFFFFF",
   "Three.js": "#FFFFFF",
   "Node.js": "#68A063",
   "Express.js": "#FFFFFF",
-  "Bootstrap": "#7952B3",
+  Bootstrap: "#7952B3",
   "Tailwind CSS": "#38BDF8",
-  "DaisyUI": "#A78BFA",
-  "Java": "#F89820",
-  "C": "#A8B9CC",
+  DaisyUI: "#A78BFA",
+  Java: "#F89820",
+  C: "#A8B9CC",
   "C++": "#00599C",
-  "Python": "#3776AB",
-  "Mongoose": "#FF6B6B",
-  "MongoDB": "#47A248",
-  "MySQL": "#4479A1",
-  "Git": "#F05032",
-  "GitHub": "#FFFFFF",
-  "Vite": "#646CFF",
-  "Bun": "#FFFFFF",
-  "Postman": "#FF6C37",
-  "Bruno":"#FFC50F",
-  "Vercel": "#FFFFFF",
-  "Blender": "#F5792A",
+  Python: "#3776AB",
+  Mongoose: "#FF6B6B",
+  MongoDB: "#47A248",
+  MySQL: "#4479A1",
+  Git: "#F05032",
+  GitHub: "#FFFFFF",
+  Vite: "#646CFF",
+  Bun: "#FFFFFF",
+  Postman: "#FF6C37",
+  Bruno: "#FFC50F",
+  Vercel: "#FFFFFF",
+  Blender: "#F5792A",
 };
 
 function alpha(hex: string, a: number) {
-  const h = hex.replace('#','');
+  const h = hex.replace("#", "");
   const isShort = h.length === 3;
-  const r = parseInt(isShort ? h[0]+h[0] : h.substring(0,2), 16);
-  const g = parseInt(isShort ? h[1]+h[1] : h.substring(2,4), 16);
-  const b = parseInt(isShort ? h[2]+h[2] : h.substring(4,6), 16);
+  const r = parseInt(isShort ? h[0] + h[0] : h.substring(0, 2), 16);
+  const g = parseInt(isShort ? h[1] + h[1] : h.substring(2, 4), 16);
+  const b = parseInt(isShort ? h[2] + h[2] : h.substring(4, 6), 16);
   return `rgba(${r}, ${g}, ${b}, ${a})`;
 }
 
 const skills = [
-    { name: "HTML", icon: SiHtml5 },
-    { name: "CSS", icon: SiCss3 },
-    { name: "JavaScript", icon: SiJavascript },
-    { name: "TypeScript", icon: SiTypescript },
-    { name: "React.js", icon: SiReact },
-    { name: "Redux", icon: SiRedux },
-    { name: "React Router", icon: SiReactrouter },
-    { name: "Next.js", icon: SiNextdotjs },
-    { name: "Three.js", icon: SiThreedotjs },
-    { name: "Node.js", icon: SiNodedotjs },
-    { name: "Express.js", icon: SiExpress },
-    { name: "Bootstrap", icon: SiBootstrap },
-    { name: "Tailwind CSS", icon: SiTailwindcss },
-    { name: "DaisyUI", icon: SiDaisyui },
-    { name: "Java", icon: SiOpenjdk },
-    { name: "C", icon: SiC },
-    { name: "C++", icon: SiCplusplus },
-    { name: "Python", icon: SiPython },
-    { name: "Mongoose", icon: SiMongoose },
-    { name: "MongoDB", icon: SiMongodb },
-    { name: "MySQL", icon: SiMysql },
-    { name: "Git", icon: SiGit },
-    { name: "GitHub", icon: SiGithub },
-    { name: "Vite", icon: SiVite },
-    { name: "Bun", icon: SiBun },
-    { name: "Postman", icon: SiPostman },
-    {name: "Bruno", icon: SiBruno},
-    { name: "Vercel", icon: TbBrandVercel },
-    { name: "Blender", icon: SiBlender },
+  { name: "HTML", icon: SiHtml5 },
+  { name: "CSS", icon: SiCss3 },
+  { name: "JavaScript", icon: SiJavascript },
+  { name: "TypeScript", icon: SiTypescript },
+  { name: "React.js", icon: SiReact },
+  { name: "Redux", icon: SiRedux },
+  { name: "React Router", icon: SiReactrouter },
+  { name: "Next.js", icon: SiNextdotjs },
+  { name: "Three.js", icon: SiThreedotjs },
+  { name: "Node.js", icon: SiNodedotjs },
+  { name: "Express.js", icon: SiExpress },
+  { name: "Bootstrap", icon: SiBootstrap },
+  { name: "Tailwind CSS", icon: SiTailwindcss },
+  { name: "DaisyUI", icon: SiDaisyui },
+  { name: "Java", icon: SiOpenjdk },
+  { name: "C", icon: SiC },
+  { name: "C++", icon: SiCplusplus },
+  { name: "Python", icon: SiPython },
+  { name: "Mongoose", icon: SiMongoose },
+  { name: "MongoDB", icon: SiMongodb },
+  { name: "MySQL", icon: SiMysql },
+  { name: "Git", icon: SiGit },
+  { name: "GitHub", icon: SiGithub },
+  { name: "Vite", icon: SiVite },
+  { name: "Bun", icon: SiBun },
+  { name: "Postman", icon: SiPostman },
+  { name: "Bruno", icon: SiBruno },
+  { name: "Vercel", icon: TbBrandVercel },
+  { name: "Blender", icon: SiBlender },
 ];
 
 const SkillsSection = () => {
   const { theme } = useTheme();
-  
+
   return (
-    <section id="skills" className="py-16 px-4">
-<div className="container mx-auto max-w-6xl">
+    <section id="skills" className="py-16 px-4 relative">
+      <div className="container mx-auto max-w-6xl">
         <Reveal>
           <h2 className="section-title text-center">My Skills</h2>
         </Reveal>
+
         <Reveal>
           <p className="text-center text-foreground/70 max-w-2xl mx-auto mt-2">
             A collection of technologies and tools I'm proficient in, constantly learning and improving.
           </p>
         </Reveal>
+
         <Reveal>
-          <div className="skills-shell mt-16 p-8 dot-grid" style={theme === 'light' ? { backgroundImage: 'radial-gradient(hsl(185 65% 50% / 0.30) 1px, transparent 1px)', backgroundSize: '22px 22px', backgroundPosition: '-10px -10px' } : undefined}>
-            <FadeInStagger className="flex flex-wrap justify-center gap-5">
-              {skills.map((skill) => {
-                const IconComponent = skill.icon;
-                const color = BRAND_COLORS[skill.name] || 'currentColor';
-                const isWhiteBrand = color === "#FFFFFF";
-                const iconColor = isWhiteBrand 
-                  ? (theme === "light" ? "#1e293b" : "#e2e8f0")
-                  : color;
-                
-                return (
-                  <FadeInItem
-                    key={skill.name}
-                    className={cn(
-                      "relative p-4 text-center group transform transition-all duration-300 hover:-translate-y-1 bg-background/40 border border-border hover:border-primary/50"
-                    )}
-                  >
-                    <div className="relative mb-2">
-                      <div
-                        className={cn(
-                          "w-12 h-12 mx-auto rounded-lg flex items-center justify-center mb-2 transition-all",
-                          isWhiteBrand && "icon-dark-bg"
-                        )}
-                        style={{
-                          background: !isWhiteBrand ? `linear-gradient(135deg, ${alpha(color,0.22)}, ${alpha('#000000',0)})` : undefined,
-                          boxShadow: !isWhiteBrand ? `0 0 0 1px ${alpha(color, 0.45)}` : undefined,
-                        }}
-                      >
-                        <IconComponent 
-                          className="w-6 h-6" 
-                          style={{ color: iconColor }} 
+          <div
+            className="skills-shell mt-16 p-8 relative min-h-[600px] overflow-hidden bg-background
+              border border-white/10"
+          >
+          <div className="absolute inset-0 bg-background backdrop-blur-[1px] z-0" />
+
+            <div className="absolute inset-0 pointer-events-none z-[1] opacity-[0.15]">
+              <DotGrid
+                className="w-full h-full p-0"
+                dotSize={4.5}
+                gap={16}
+                baseColor={theme === "light" ? "#f9330cff" : "#38BDF8"}
+                activeColor={theme === "light" ? "#f411deff" : "#1b7ff8ff"}
+                proximity={120}
+                shockRadius={250}
+                shockStrength={5}
+                resistance={750}
+                returnDuration={1.5}
+              />
+            </div>
+
+            <div className="relative z-[2]">
+              <FadeInStagger className="flex flex-wrap justify-center gap-5 gap-y-8 gap-x-6">
+                {skills.map((skill) => {
+                  const IconComponent = skill.icon;
+                  const color = BRAND_COLORS[skill.name] || "currentColor";
+                  const isWhiteBrand = color === "#FFFFFF";
+                  const iconColor = isWhiteBrand ? (theme === "light" ? "#1e293b" : "#e2e8f0") : color;
+
+                  return (
+                    <FadeInItem
+                      key={skill.name}
+                      className={cn(
+                        "relative p-4 text-center group transform transition-all duration-300 hover:-translate-y-1",
+                        "bg-white/5 backdrop-blur-sm border border-white/8 hover:border-primary/50 rounded-lg"
+                      )}
+                    >
+                      <div className="relative mb-2">
+                        <div
+                          className={cn(
+                            "w-12 h-12 mx-auto rounded-lg flex items-center justify-center mb-2 transition-all",
+                            isWhiteBrand && "icon-dark-bg"
+                          )}
+                          style={{
+                            background: !isWhiteBrand
+                              ? `linear-gradient(135deg, ${alpha(color, 0.22)}, ${alpha("#000000", 0)})`
+                              : undefined,
+                            boxShadow: !isWhiteBrand ? `0 0 0 1px ${alpha(color, 0.45)}` : undefined,
+                          }}
+                        >
+                          <IconComponent className="w-6 h-6" style={{ color: iconColor }} />
+                        </div>
+
+                        <span
+                          className="pointer-events-none absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"
+                          style={{
+                            background: `radial-gradient(120px 60px at 20% 0%, ${alpha(color, 0.18)}, transparent 60%)`,
+                          }}
                         />
                       </div>
-                      <span className="pointer-events-none absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: `radial-gradient(120px 60px at 20% 0%, ${alpha(color,0.18)}, transparent 60%)` }} />
-                    </div>
-                    <span className="text-sm font-medium text-foreground/80 group-hover:text-primary transition-colors">
-                      {skill.name}
-                    </span>
-                  </FadeInItem>
-                );
-              })}
-            </FadeInStagger>
+
+                      <span className="text-sm font-medium text-foreground/80 group-hover:text-primary transition-colors">
+                        {skill.name}
+                      </span>
+                    </FadeInItem>
+                  );
+                })}
+              </FadeInStagger>
+            </div>
           </div>
         </Reveal>
       </div>
