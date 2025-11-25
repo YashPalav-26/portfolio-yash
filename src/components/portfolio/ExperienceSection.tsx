@@ -2,7 +2,7 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import talentCornerLogo from "@/assets/talent-corner-logo.png";
 import nullclassLogo from "@/assets/nullclass-logo.png";
-import { Reveal } from "@/components/motion/Reveal";
+import { Reveal } from "@/components/animations/Reveal";
 
 const ExperienceSection = () => {
   const [selectedCompany, setSelectedCompany] = useState(0);

@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import Logo from "./Logo";
-import { Reveal } from "@/components/motion/Reveal";
+import { Reveal } from "@/components/animations/Reveal";
 import { SOCIAL_LINKS } from "@/constants";
 
 const Footer = () => {
