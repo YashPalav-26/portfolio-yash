@@ -1,6 +1,6 @@
 import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
-import { Reveal } from "@/components/motion/Reveal";
+import { Reveal } from "@/components/animations/Reveal";
 import { Home, ArrowLeft, Search } from "lucide-react";
 
 const NotFound = () => {
