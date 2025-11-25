@@ -1,58 +1,151 @@
-# Yash Palav — Portfolio
+<div align="center">
 
-[![React](https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat&logo=typescript)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Vite-5.0-646CFF?style=flat&logo=vite)](https://vitejs.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.0-38B2AC?style=flat&logo=tailwind-css)](https://tailwindcss.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# ✨ Yash Palav — Portfolio
 
-A fast, modern, single-page portfolio built with cutting-edge web technologies. This responsive portfolio showcases professional experience, skills, and projects with elegant animations, a custom cursor effect, and an integrated resume viewer.
+**A modern, performant portfolio showcasing the art of web development**
 
-## Key Features
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-yashpalav.vercel.app-4FC3F7?style=for-the-badge)](https://yashpalav.vercel.app)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-- **Live Resume Route**: Direct `/resume` access with inline PDF viewer
-- **SPA Routing**: Seamless navigation with React Router and Vercel rewrites
-- **Custom Cursor Effects**: Minimalist aura with rotating ring and subtle ghost trail
-- **Smooth Animations**: Lottie animations with reduced-motion accessibility support
-- **Responsive Design**: Optimized for all device sizes
-- **Modern UI**: Built with shadcn/ui components and Tailwind CSS
-- **Contact Integration**: EmailJS integration for contact form functionality
+![React](https://img.shields.io/badge/React_18-20232A?style=flat&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript_5-3178C6?style=flat&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite_5-646CFF?style=flat&logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=flat&logo=framer&logoColor=white)
+
+</div>
 
 ---
 
-## Tech Stack
+## 🚀 Overview
 
-**Frontend Framework & Build Tools:**
-- [Vite 5](https://vitejs.dev/) - Lightning-fast build tool and dev server
-- [React 18](https://reactjs.org/) - Modern React with concurrent features
-- [TypeScript](https://www.typescriptlang.org/) - Type-safe JavaScript
+A blazing-fast, single-page application portfolio built with cutting-edge web technologies. This fully responsive portfolio showcases professional experience, technical skills, and projects with stunning animations, interactive elements, and thoughtful UX design.
 
-**Styling & UI:**
-- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
-- [shadcn/ui](https://ui.shadcn.com/) - Modern component library (Radix primitives)
-- [Framer Motion](https://www.framer.com/motion/) - Production-ready motion library
+## ✨ Key Features
 
-**Routing & Data:**
-- [React Router](https://reactrouter.com/) - Declarative routing for React
-- [Lottie](https://lottiefiles.com/) - High-quality animations
+🎯 **Core Functionality**
+- **Live Resume Viewer** — Dedicated `/resume` route with inline PDF rendering
+- **SPA Routing** — Seamless client-side navigation with React Router
+- **Responsive Design** — Pixel-perfect across mobile, tablet, and desktop
+- **Theme Toggle** — Beautiful dark/light mode with custom color palettes
+- **Contact Form** — Integrated EmailJS for instant communication
 
-**Communication:**
-- [EmailJS](https://www.emailjs.com/) - Email service integration for contact forms
+🎨 **Visual Excellence**
+- **Custom Cursor Effect** — Minimalist aura with rotating ring and ghost trail (desktop)
+- **Lottie Animations** — High-quality JSON animations for hero and sections
+- **Framer Motion** — Smooth page transitions and scroll-triggered reveals
+- **Neobrutalist Design** — Bold, modern UI with custom shadows and sharp edges
+- **Glassmorphism Effects** — Subtle backdrop blur and transparency layers
 
-## Prerequisites
+⚡ **Performance & Accessibility**
+- **Reduced Motion Support** — Respects user's motion preferences
+- **Optimized Loading** — Lazy loading, code splitting, and efficient bundling
+- **Error Boundaries** — Graceful error handling with fallback UI
+- **SEO Ready** — Meta tags, semantic HTML, and optimized structure
 
-- **Node.js** 18+ (required by Vite 5)
-- **npm** (or pnpm/yarn if you prefer)
-- **Git** for cloning the repository
+---
 
-## EmailJS Setup
+## 🛠️ Tech Stack
 
-This portfolio uses EmailJS for contact form functionality. To set up email functionality:
+### **Frontend Framework**
+- **[React 18.3](https://reactjs.org/)** — Modern React with concurrent features and hooks
+- **[TypeScript 5.8](https://www.typescriptlang.org/)** — Type-safe development with enhanced DX
+- **[Vite 5.4](https://vitejs.dev/)** — Lightning-fast HMR and optimized production builds
 
-1. **Create EmailJS Account**: Sign up at [EmailJS](https://www.emailjs.com/)
-2. **Create Email Service**: Connect your email provider (Gmail, Outlook, etc.)
-3. **Create Email Template**: Set up a template for the contact form
-4. **Environment Variables**: Copy `.env` and update with your EmailJS credentials:
+### **Styling & UI Components**
+- **[Tailwind CSS 3.4](https://tailwindcss.com/)** — Utility-first CSS framework with custom design tokens
+- **[shadcn/ui](https://ui.shadcn.com/)** — Beautifully designed components built on Radix UI primitives
+- **[Radix UI](https://www.radix-ui.com/)** — Unstyled, accessible component primitives
+- **[Lucide React](https://lucide.dev/)** — Beautiful, customizable icon set
+- **[React Icons 5.5](https://react-icons.github.io/react-icons/)** — Popular icon library with ES6 imports
+
+### **Animation & Motion**
+- **[Framer Motion 11.18](https://www.framer.com/motion/)** — Production-ready animation library for React
+  - Scroll-triggered reveal animations
+  - Page transition effects
+  - Gesture-based interactions
+  - Smooth layout animations
+- **[Lottie React 2.4](https://lottiefiles.com/)** — Lightweight, scalable JSON animations
+  - Hero section coding animation
+  - Interactive developer illustration
+  - Smooth, performant vector graphics
+- **[GSAP 3.13](https://greensock.com/gsap/)** — Professional-grade animation toolkit for advanced effects
+- **Custom CSS Animations** — Handcrafted keyframe animations
+  - Typewriter effect with blinking cursor
+  - Fade-in-up transitions
+  - Slide-in-left effects
+  - Floating elements with bounce
+  - Neobrutalist hover transformations
+
+### **Routing & Navigation**
+- **[React Router DOM 6.30](https://reactrouter.com/)** — Declarative routing with nested routes and SPA navigation
+
+### **Integrations & Utilities**
+- **[EmailJS 4.4](https://www.emailjs.com/)** — Send emails directly from JavaScript (contact form)
+- **[next-themes 0.3](https://github.com/pacocoursey/next-themes)** — Perfect dark mode with system preference detection
+- **[Sonner](https://sonner.emilkowal.ski/)** — Beautiful toast notifications
+- **[clsx](https://github.com/lukeed/clsx)** & **[tailwind-merge](https://github.com/dcastil/tailwind-merge)** — Intelligent class name merging
+
+### **Developer Experience**
+- **[ESLint 9](https://eslint.org/)** — Code quality and consistency
+- **[TypeScript ESLint 8.44](https://typescript-eslint.io/)** — TypeScript-specific linting rules
+- **[Vite Plugin React SWC](https://github.com/vitejs/vite-plugin-react-swc)** — Faster builds with SWC compiler
+- **[PostCSS](https://postcss.org/)** & **[Autoprefixer](https://autoprefixer.github.io/)** — CSS processing and vendor prefixing
+
+---
+
+## 🎨 Animation Showcase
+
+This portfolio features carefully crafted animations to enhance user experience:
+
+### **Framer Motion Animations**
+- **Scroll-Based Reveals** — Sections fade in and slide up as you scroll
+- **Stagger Effects** — Child elements animate in sequence for visual hierarchy
+- **Hover Interactions** — Project cards, skill icons, and buttons respond to user interaction
+- **Page Transitions** — Smooth navigation between routes
+
+### **Lottie JSON Animations**
+- **Hero Animation** (`hero-page-animation.json`) — Dynamic developer illustration on landing
+- **Coding Animation** (`coder.json`) — Animated coding scene in About section
+
+### **Custom CSS Animations**
+- **Typewriter Effect** — Animated text typing with blinking cursor in hero section
+- **Neobrutalist Hover** — Cards translate with dynamic shadow effects
+- **Geometric Clip Paths** — Unique button shapes with smooth transitions
+- **Floating Elements** — Subtle vertical oscillation for visual interest
+- **Shine Effect** — Gradient sweep animation on button hover
+- **Glow Effects** — Radial gradient overlays with blur for depth
+
+### **GSAP Animations**
+- Advanced timeline-based animations
+- Smooth scroll effects
+- Complex morphing transitions
+
+---
+
+## 🎯 Getting Started
+
+### **Prerequisites**
+- **Node.js** 18+ (LTS recommended)
+- **npm**, **pnpm**, or **yarn** package manager
+- **Git** for version control
+
+### **Installation**
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/YashPalav-26/portfolio-yash.git
+cd portfolio-yash
+```
+
+2. **Install dependencies**
+```bash
+npm install
+```
+
+3. **Set up environment variables**
+
+Create a `.env` file in the root directory:
 
 ```env
 VITE_EMAILJS_SERVICE_ID=your_service_id
@@ -60,198 +153,94 @@ VITE_EMAILJS_PUBLIC_KEY=your_public_key
 VITE_EMAILJS_TEMPLATE_ID=your_template_id
 ```
 
-**Note**: Never commit the `.env` file to version control. It's already included in `.gitignore`.
+> **Note:** Get your EmailJS credentials at [emailjs.com](https://www.emailjs.com/)
 
-## Demo
-
-**Live Demo**: [View Portfolio](https://yashpalav.vercel.app)
-
-The portfolio includes:
-- **Interactive Navigation** - Smooth scrolling between sections
-- **Project Showcase** - GitHub and live demo links
-- **Resume Viewer** - Inline PDF viewing at `/resume`
-- **Custom Cursor** - Elegant cursor effects (desktop only)
-- **Responsive Design** - Optimized for all screen sizes
-
-## Available Scripts
-- `npm run dev` — start Vite dev server
-- `npm run build` — production build
-- `npm run build:dev` — development-mode build
-- `npm run preview` — preview built app locally
-- `npm run lint` — run ESLint
-
-## Features
-- Sections: Hero, About, Skills, Experience, Projects, Contact
-- Projects with clean GitHub/live icons and hover feedback
-- Resume page: `/resume` embeds a PDF viewer for consistent inline viewing
-- Custom cursor effect: small dot + soft aura + rotating ring + subtle ghost trail (disabled on touch devices)
-- Smooth reveal animations that respect reduced-motion user preferences
-- Optimized SVG favicon for crisp tabs
-
-## Project Structure
-
-```
-portfolio-yash/
-├── public/
-│   ├── favicon.svg              # Custom SVG favicon
-│   ├── resume.pdf              # Resume PDF file
-│   └── placeholder.svg         # Placeholder image
-├── src/
-│   ├── assets/                 # Static assets (images, animations)
-│   │   ├── apexscript.png
-│   │   ├── coding-animation.json
-│   │   ├── hero-animation.json
-│   │   ├── ledger.png
-│   │   ├── logo.png
-│   │   ├── nullclass-logo.png
-│   │   └── talent-corner-logo.png
-│   ├── components/
-│   │   ├── ErrorBoundary.tsx   # Error boundary component
-│   │   ├── LoadingScreen.tsx   # Loading screen component
-│   │   ├── effects/
-│   │   │   └── CursorAura.tsx  # Custom cursor with aura effect
-│   │   ├── motion/
-│   │   │   └── Reveal.tsx      # Scroll-triggered animations
-│   │   ├── portfolio/
-│   │   │   ├── AboutSection.tsx
-│   │   │   ├── ContactSection.tsx
-│   │   │   ├── ContactSvg.tsx
-│   │   │   ├── EmailSidebar.tsx
-│   │   │   ├── ExperienceSection.tsx
-│   │   │   ├── Footer.tsx
-│   │   │   ├── Header.tsx
-│   │   │   ├── HeroSection.tsx
-│   │   │   ├── Logo.tsx
-│   │   │   ├── MobileActionBar.tsx
-│   │   │   ├── Navigation.tsx
-│   │   │   ├── Portfolio.tsx
-│   │   │   ├── ProjectsSection.tsx
-│   │   │   └── SkillsSection.tsx
-│   │   ├── ui/                 # Reusable UI components (shadcn/ui)
-│   │   │   ├── accordion.tsx
-│   │   │   ├── alert-dialog.tsx
-│   │   │   ├── alert.tsx
-│   │   │   ├── aspect-ratio.tsx
-│   │   │   ├── avatar.tsx
-│   │   │   ├── badge.tsx
-│   │   │   ├── breadcrumb.tsx
-│   │   │   ├── button.tsx
-│   │   │   ├── calendar.tsx
-│   │   │   ├── card.tsx
-│   │   │   ├── carousel.tsx
-│   │   │   ├── chart.tsx
-│   │   │   ├── checkbox.tsx
-│   │   │   ├── collapsible.tsx
-│   │   │   ├── command.tsx
-│   │   │   ├── context-menu.tsx
-│   │   │   ├── dialog.tsx
-│   │   │   ├── drawer.tsx
-│   │   │   ├── dropdown-menu.tsx
-│   │   │   ├── form.tsx
-│   │   │   ├── hover-card.tsx
-│   │   │   ├── input-otp.tsx
-│   │   │   ├── input.tsx
-│   │   │   ├── label.tsx
-│   │   │   ├── menubar.tsx
-│   │   │   ├── navigation-menu.tsx
-│   │   │   ├── pagination.tsx
-│   │   │   ├── popover.tsx
-│   │   │   ├── progress.tsx
-│   │   │   ├── radio-group.tsx
-│   │   │   ├── resizable.tsx
-│   │   │   ├── scroll-area.tsx
-│   │   │   ├── select.tsx
-│   │   │   ├── separator.tsx
-│   │   │   ├── sheet.tsx
-│   │   │   ├── sidebar.tsx
-│   │   │   ├── skeleton.tsx
-│   │   │   ├── slider.tsx
-│   │   │   ├── sonner.tsx
-│   │   │   ├── switch.tsx
-│   │   │   ├── table.tsx
-│   │   │   ├── tabs.tsx
-│   │   │   ├── textarea.tsx
-│   │   │   ├── ThemeToggle.tsx
-│   │   │   ├── toast.tsx
-│   │   │   ├── toaster.tsx
-│   │   │   ├── toggle-group.tsx
-│   │   │   ├── toggle.tsx
-│   │   │   ├── tooltip.tsx
-│   │   │   └── use-toast.ts
-│   │   └── SocialSidebar.tsx
-│   ├── constants/
-│   │   └── index.ts
-│   ├── contexts/
-│   │   └── ThemeContext.tsx
-│   ├── hooks/
-│   │   ├── use-mobile.tsx
-│   │   └── use-toast.ts
-│   ├── lib/
-│   │   ├── env.ts
-│   │   └── utils.ts
-│   ├── pages/
-│   │   ├── Index.tsx           # Home page
-│   │   ├── Resume.tsx          # Resume viewer page
-│   │   └── NotFound.tsx        # 404 page
-│   ├── App.css
-│   ├── App.tsx                 # Main app component with routing
-│   ├── main.tsx                # React application entry point
-│   ├── vite-env.d.ts
-│   └── index.css               # Global styles and design tokens
-├── .gitignore
-├── eslint.config.js
-├── index.html
-├── LICENSE
-├── package-lock.json
-├── package.json
-├── postcss.config.js
-├── tailwind.config.ts
-├── tsconfig.app.json
-├── tsconfig.json
-├── tsconfig.node.json
-├── vercel.json
-├── vite.config.ts
-└── .env                        # Environment variables (not in version control)
+4. **Start the development server**
+```bash
+npm run dev
 ```
 
-## Support & Contact
+5. **Open your browser**
+Navigate to `http://localhost:5173`
 
-- **Author**: Yash Palav
-- **Email**: [yashpalav48@gmail.com](mailto:yashpalav48@gmail.com)
-- **LinkedIn**: [linkedin.com/in/yashpalav](https://linkedin.com/in/yashpalav)
-- **GitHub**: [github.com/YashPalav-26](https://github.com/YashPalav-26)
+---
 
-For support, email [yashpalav48@gmail.com] or create an issue in the repository.
+## 📜 Available Scripts
 
-## License
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start Vite development server with HMR |
+| `npm run build` | Create optimized production build |
+| `npm run build:dev` | Build in development mode (unminified) |
+| `npm run preview` | Preview production build locally |
+| `npm run lint` | Run ESLint for code quality checks |
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+---
 
-## Credits & Attribution
+## 🌐 Deployment
 
-If you find this portfolio inspiring and decide to clone, fork, or use this code as a foundation for your own portfolio, I kindly ask that you:
+This portfolio is optimized for deployment on **Vercel**:
 
-- **Give appropriate credit** by mentioning me as the original author
-- **Include a link back** to this original repository: [github.com/YashPalav-26/portfolio-yash](https://github.com/YashPalav-26/portfolio-yash)
-- **Respect the open-source spirit** by sharing your improvements with the community
+1. Push your code to GitHub
+2. Import the repository on [Vercel](https://vercel.com)
+3. Add environment variables in Vercel dashboard
+4. Deploy! 🚀
 
-A simple attribution in your README would be greatly appreciated:
+The included `vercel.json` configures SPA routing for seamless navigation.
 
+---
+
+## 📬 Contact Integration
+
+The contact form uses **EmailJS** for serverless email delivery:
+
+1. **Sign up** at [EmailJS](https://www.emailjs.com/)
+2. **Create an email service** (Gmail, Outlook, etc.)
+3. **Create an email template** with variables: `{{from_name}}`, `{{from_email}}`, `{{message}}`
+4. **Add credentials** to your `.env` file
+5. **Test the form** — emails will arrive in your configured inbox
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Credits & Attribution
+
+If you find this portfolio inspiring and use it as a foundation for your own work:
+
+- ✅ **Give credit** by mentioning the original author
+- 🔗 **Link back** to this repository: [github.com/YashPalav-26/portfolio-yash](https://github.com/YashPalav-26/portfolio-yash)
+- 🤝 **Share improvements** with the open-source community
+
+**Example attribution:**
 ```markdown
 ## Credits
-This portfolio is inspired by [Yash Palav's Portfolio](https://github.com/YashPalav-26/portfolio-yash) - Built with React, TypeScript, and Tailwind CSS.
+Inspired by [Yash Palav's Portfolio](https://github.com/YashPalav-26/portfolio-yash) — Built with React, TypeScript, Tailwind CSS, and Framer Motion.
 ```
 
-Your recognition helps support open-source development and motivates continuous improvement. Thank you for your understanding and respect for the original work!
+---
+
+## 🤝 Support & Connect
+
+Built with passion by **Yash Palav**
+
+[![Portfolio](https://img.shields.io/badge/Portfolio-yashpalav.vercel.app-4FC3F7?style=flat&logo=vercel)](https://yashpalav.vercel.app)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-yashpalav-0077B5?style=flat&logo=linkedin)](https://linkedin.com/in/yashpalav)
+[![GitHub](https://img.shields.io/badge/GitHub-YashPalav--26-181717?style=flat&logo=github)](https://github.com/YashPalav-26)
+[![Email](https://img.shields.io/badge/Email-yashpalav48@gmail.com-D14836?style=flat&logo=gmail&logoColor=white)](mailto:yashpalav48@gmail.com)
 
 ---
 
 <div align="center">
 
-**Built with ❤️ by [Yash Palav](https://github.com/YashPalav-26)**
+### ⭐ Star this repository if you found it helpful!
 
-⭐ Star this repository if you found it helpful!
+**Made with ❤️ and lots of ☕**
+
+*Copyright © 2025 Yash Palav*
 
 </div>
-
-Copyright (c) 2025 Yash Palav
