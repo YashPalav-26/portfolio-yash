@@ -2,7 +2,7 @@ import { Github, ExternalLink } from "lucide-react";
 import ledgerProjectImage from "@/assets/ledger.png";
 import apexscriptImage from "@/assets/apexscript.png";
 import tradeproImage from "@/assets/tradepro.png"
-import { Reveal, FadeInStagger, FadeInItem } from "@/components/motion/Reveal";
+import { Reveal, FadeInStagger, FadeInItem } from "@/components/animations/Reveal";
 
 const ProjectsSection = () => {
   const featuredProjects = [

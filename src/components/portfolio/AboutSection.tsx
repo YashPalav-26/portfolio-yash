@@ -1,7 +1,7 @@
 import { Download, Code2, Bike, Music, Wrench, Lightbulb, Users, Heart, Globe2, Brain } from "lucide-react";
 import Lottie from "lottie-react";
 import animationData from "../../assets/coder.json"; 
-import { Reveal } from "@/components/motion/Reveal";
+import { Reveal } from "@/components/animations/Reveal";
 import { Link } from "react-router-dom";
 
 const AboutSection = () => {

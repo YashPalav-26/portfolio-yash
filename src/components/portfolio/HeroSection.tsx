@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import Lottie from "lottie-react";
 import heroAnimationData from "../../assets/hero-page-animation.json";
-import { Reveal } from "@/components/motion/Reveal";
+import { Reveal } from "@/components/animations/Reveal";
 
 interface HeroSectionProps {
   onSectionClick: (section: string) => void;
