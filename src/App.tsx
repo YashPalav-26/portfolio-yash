@@ -8,12 +8,15 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Resume from "./pages/Resume";
 import CursorAura from "@/components/effects/CursorAura";
+import ClickSpark from "@/components/animations/ClickSpark";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import LoadingScreen from "@/components/LoadingScreen";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const queryClient = new QueryClient();
 
 const App = () => {
+  const { theme } = useTheme();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -32,13 +35,15 @@ const App = () => {
           <Toaster />
           <Sonner />
           <CursorAura />
-          <BrowserRouter basename={import.meta.env.BASE_URL}>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/resume" element={<Resume />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
+          <ClickSpark sparkColor={theme === 'dark' ? '#fff' : '#000'} sparkSize={10} sparkRadius={15} sparkCount={8} duration={400}>
+            <BrowserRouter basename={import.meta.env.BASE_URL}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/resume" element={<Resume />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </BrowserRouter>
+          </ClickSpark>
         </TooltipProvider>
       </QueryClientProvider>
     </ErrorBoundary>
