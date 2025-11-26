@@ -11,7 +11,7 @@ interface HeroSectionProps {
 const HERO_TEXTS = [
   "Speedrun coder, RPG quest designer.",
   "Driven by curiosity and coffee.",
-  "Cycling enthusiast on a code journey.", 
+  "Cycling enthusiast on a code journey.",
   "Blendering creativity with code.",
 ] as const;
 
@@ -43,56 +43,56 @@ const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 text-center"
       style={{ background: "var(--gradient-hero)" }}
     >
-      <div className="max-w-6xl px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid md:grid-cols-2 gap-8 items-center">
+      <div className="max-w-7xl px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-16 w-full">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 3xl:gap-16 4xl:gap-20 items-center">
           <div className="text-center md:text-left">
-          <Reveal>
-            <p className="text-primary font-mono text-lg mb-4 tracking-widest uppercase">
-              Hello, I'm
-            </p>
-          </Reveal>
-
-          <Reveal delay={0.05}>
-            <h1 className="text-hero font-black text-foreground mb-4">
-              Yash Palav
-            </h1>
-          </Reveal>
-
-          <Reveal delay={0.1}>
-            <h3 className="text-hero-sub font-bold text-gray-500 mb-8 h-12 flex items-center justify-center md:justify-start">
-              <span className="typewriter">{currentText}</span>
-            </h3>
-          </Reveal>
-
-          <Reveal delay={0.15}>
-            <div className="max-w-2xl mx-auto md:mx-0">
-              <p className="text-lg leading-relaxed text-foreground/80">
-                I’m a web developer who treats every project like a new game level to conquer blending speed, strategy, and creativity to build experiences that stand out. With a strong foundation in modern web technologies, I love crafting immersive web experiences, often experimenting with 3D models in Blender and integrating them into interactive UIs.
+            <Reveal>
+              <p className="text-primary font-mono text-lg mb-4 tracking-widest uppercase">
+                Hello, I'm
               </p>
-            </div>
-          </Reveal>
+            </Reveal>
 
-          <Reveal delay={0.2}>
-            <div className="relative z-10 flex flex-col sm:flex-row gap-6 justify-center md:justify-start mt-12">
-              <button
-                onClick={() => onSectionClick("projects")}
-                className="neobrutalist-button neobrutalist-button-primary px-8 py-4 text-lg group"
-              >
-                <span className="relative z-10">View My Work</span>
-              </button>
-              <button
-                onClick={() => onSectionClick("contact")}
-                className="neobrutalist-button neobrutalist-button-secondary px-8 py-4 text-lg group"
-              >
-                <span className="relative z-10">Get In Touch</span>
-              </button>
-            </div>
-          </Reveal>
-        </div>
+            <Reveal delay={0.05}>
+              <h1 className="text-hero font-black text-foreground mb-4">
+                Yash Palav
+              </h1>
+            </Reveal>
+
+            <Reveal delay={0.1}>
+              <h3 className="text-hero-sub font-bold text-gray-500 mb-8 h-12 flex items-center justify-center md:justify-start">
+                <span className="typewriter">{currentText}</span>
+              </h3>
+            </Reveal>
+
+            <Reveal delay={0.15}>
+              <div className="max-w-2xl mx-auto md:mx-0">
+                <p className="text-lg leading-relaxed text-foreground/80">
+                  I'm a web developer who treats every project like a new game level to conquer blending speed, strategy, and creativity to build experiences that stand out. With a strong foundation in modern web technologies, I love crafting immersive web experiences, often experimenting with 3D models in Blender and integrating them into interactive UIs.
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.2}>
+              <div className="relative z-10 flex flex-col sm:flex-row gap-6 justify-center md:justify-start mt-12">
+                <button
+                  onClick={() => onSectionClick("projects")}
+                  className="neobrutalist-button neobrutalist-button-primary px-8 py-4 text-lg group"
+                >
+                  <span className="relative z-10">View My Work</span>
+                </button>
+                <button
+                  onClick={() => onSectionClick("contact")}
+                  className="neobrutalist-button neobrutalist-button-secondary px-8 py-4 text-lg group"
+                >
+                  <span className="relative z-10">Get In Touch</span>
+                </button>
+              </div>
+            </Reveal>
+          </div>
 
           <Reveal delay={0.25}>
             <div className="flex items-center justify-center">
-              <Lottie animationData={heroAnimationData} loop={true} className="w-full h-auto max-w-xl" />
+              <Lottie animationData={heroAnimationData} loop={true} className="w-full h-auto max-w-xl 3xl:max-w-2xl 4xl:max-w-3xl" />
             </div>
           </Reveal>
         </div>
