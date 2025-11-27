@@ -41,8 +41,9 @@ export default function CursorAura() {
       target.current.x = e.clientX;
       target.current.y = e.clientY;
 
-      const el = document.elementFromPoint(e.clientX, e.clientY) as HTMLElement | null;
-      hoverRef.current = !!el && !!el.closest(interactiveSelector);
+
+      const targetEl = e.target as HTMLElement;
+      hoverRef.current = !!targetEl && !!targetEl.closest(interactiveSelector);
     };
 
     const handleDown = () => {
@@ -67,16 +68,14 @@ export default function CursorAura() {
       posAura.current.x = lerp(posAura.current.x, target.current.x, speedAura);
       posAura.current.y = lerp(posAura.current.y, target.current.y, speedAura);
 
-      // Check if position has changed significantly (more than 0.5px)
-      const hasMoved = 
-        Math.abs(posDot.current.x - prevDotX) > 0.5 ||
-        Math.abs(posDot.current.y - prevDotY) > 0.5 ||
-        Math.abs(posAura.current.x - prevAuraX) > 0.5 ||
-        Math.abs(posAura.current.y - prevAuraY) > 0.5;
+      const hasMoved =
+        Math.abs(posDot.current.x - prevDotX) > 0.1 ||
+        Math.abs(posDot.current.y - prevDotY) > 0.1 ||
+        Math.abs(posAura.current.x - prevAuraX) > 0.1 ||
+        Math.abs(posAura.current.y - prevAuraY) > 0.1;
 
-      if (!hasMoved && !hoverRef.current) {
-        rafId.current = window.requestAnimationFrame(loop);
-        return;
+      if (!hasMoved && !hoverRef.current && !downRef.current) {
+
       }
 
       historyRef.current.push({ x: posAura.current.x, y: posAura.current.y });
@@ -92,19 +91,17 @@ export default function CursorAura() {
         const scale = downRef.current ? 0.95 : hoverRef.current ? 1.08 : 1;
         const opacity = theme === "light" ? (hoverRef.current ? "0.7" : "0.5") : (hoverRef.current ? "0.9" : "0.65");
         const intensity = theme === "light" ? "0.35" : "0.40";
-        
+
         let gradientColor;
         if (theme === "light") {
-          
-          gradientColor = hoverRef.current 
-            ? `rgba(255, 164, 164, ${intensity})` 
-            : `rgba(11, 102, 106, ${intensity})`; 
+          gradientColor = hoverRef.current
+            ? `rgba(255, 164, 164, ${intensity})`
+            : `rgba(11, 102, 106, ${intensity})`;
         } else {
-          
           const color = hoverRef.current ? "var(--secondary)" : "var(--primary)";
           gradientColor = `hsl(${color}/${intensity})`;
         }
-        
+
         auraRef.current.style.transform = `translate3d(${posAura.current.x}px, ${posAura.current.y}px, 0) translate(-50%, -50%) scale(${scale})`;
         auraRef.current.style.opacity = opacity;
         auraRef.current.style.background = `radial-gradient(35% 35% at 50% 50%, ${gradientColor} 0%, transparent 70%)`;
@@ -117,14 +114,13 @@ export default function CursorAura() {
         ringRef.current.style.borderColor = borderColor;
       }
 
-
       for (let i = 0; i < GHOSTS; i++) {
         const el = ghostsRef.current[i];
         if (!el) continue;
         const idx = historyRef.current.length - 1 - (i + 1) * 3;
         const p = historyRef.current[Math.max(0, Math.min(historyRef.current.length - 1, idx))] || posAura.current;
-        const size = 7 - i; 
-        const opacity = 0.16 - i * 0.03; 
+        const size = 7 - i;
+        const opacity = 0.16 - i * 0.03;
         el.style.width = `${size}px`;
         el.style.height = `${size}px`;
         el.style.opacity = `${opacity}`;
@@ -141,34 +137,36 @@ export default function CursorAura() {
       window.removeEventListener("mousedown", handleDown);
       window.removeEventListener("mouseup", handleUp);
     };
-  }, []);
+  }, [theme]);
 
   if (!enabled) return null;
 
   const isLight = theme === "light";
   const lightTeal = "rgba(11, 102, 106, 0.35)";
   const lightTealRing = "rgba(11, 102, 106, 0.5)";
-  
+
   return (
     <>
       <div
         ref={auraRef}
         className="pointer-events-none fixed z-50 h-14 w-14 rounded-full"
         style={{
-          background: isLight 
+          background: isLight
             ? `radial-gradient(35% 35% at 50% 50%, ${lightTeal} 0%, transparent 70%)`
             : "radial-gradient(35% 35% at 50% 50%, hsl(var(--primary)/0.40) 0%, transparent 70%)",
           mixBlendMode: isLight ? "multiply" : "screen",
           transition: "opacity 120ms ease",
+          willChange: "transform",
         }}
       />
       <div
         ref={ringRef}
         className="pointer-events-none fixed z-50 h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border"
-        style={{ 
-          borderWidth: "1px", 
+        style={{
+          borderWidth: "1px",
           borderColor: isLight ? lightTealRing : undefined,
-          mixBlendMode: isLight ? "multiply" : "screen" 
+          mixBlendMode: isLight ? "multiply" : "screen",
+          willChange: "transform",
         }}
       />
       {Array.from({ length: GHOSTS }).map((_, i) => (
@@ -178,10 +176,11 @@ export default function CursorAura() {
             if (el) ghostsRef.current[i] = el;
           }}
           className="pointer-events-none fixed z-50 rounded-full"
-          style={{ 
+          style={{
             opacity: 0.08,
             background: isLight ? "rgba(11, 102, 106, 0.8)" : "hsl(var(--primary))",
-            boxShadow: isLight ? "0 0 6px rgba(11, 102, 106, 0.6)" : "0 0 6px hsl(var(--primary)/0.6)"
+            boxShadow: isLight ? "0 0 6px rgba(11, 102, 106, 0.6)" : "0 0 6px hsl(var(--primary)/0.6)",
+            willChange: "transform",
           }}
         />
       ))}
@@ -190,7 +189,8 @@ export default function CursorAura() {
         className="pointer-events-none fixed z-50 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
           background: isLight ? "rgba(11, 102, 106, 1)" : "hsl(var(--primary))",
-          boxShadow: isLight ? "0 0 10px rgba(11, 102, 106, 0.9)" : "0 0 10px hsl(var(--primary)/0.9)"
+          boxShadow: isLight ? "0 0 10px rgba(11, 102, 106, 0.9)" : "0 0 10px hsl(var(--primary)/0.9)",
+          willChange: "transform",
         }}
       />
     </>
