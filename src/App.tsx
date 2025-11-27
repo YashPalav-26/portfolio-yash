@@ -12,6 +12,7 @@ import ClickSpark from "@/components/animations/ClickSpark";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import LoadingScreen from "@/components/LoadingScreen";
 import { useTheme } from "@/contexts/ThemeContext";
+import SmoothScroll from "@/components/effects/SmoothScroll";
 
 const queryClient = new QueryClient();
 
@@ -37,11 +38,13 @@ const App = () => {
           <CursorAura />
           <ClickSpark sparkColor={theme === 'dark' ? '#fff' : '#000'} sparkSize={10} sparkRadius={15} sparkCount={8} duration={400}>
             <BrowserRouter basename={import.meta.env.BASE_URL}>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/resume" element={<Resume />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
+              <SmoothScroll>
+                <Routes>
+                  <Route path="/" element={<Index />} />
+                  <Route path="/resume" element={<Resume />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </SmoothScroll>
             </BrowserRouter>
           </ClickSpark>
         </TooltipProvider>
