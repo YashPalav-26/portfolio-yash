@@ -98,27 +98,22 @@ const AboutSection = () => {
                                 className="resume-button-minimal group relative inline-flex items-center gap-2.5 text-sm overflow-visible"
                                 to="/resume"
                             >
-                                {/* Geometric corner accents */}
                                 <span className="absolute -top-1 -left-1 w-2.5 h-2.5 border-t-2 border-l-2 border-background opacity-80 group-hover:opacity-100 group-hover:scale-125 transition-all duration-300 origin-top-left" />
                                 <span className="absolute -bottom-1 -right-1 w-2.5 h-2.5 border-b-2 border-r-2 border-background opacity-80 group-hover:opacity-100 group-hover:scale-125 transition-all duration-300 origin-bottom-right" />
 
-                                {/* Icon with minimal square background */}
                                 <span className="relative flex items-center justify-center w-8 h-8 border border-primary-foreground/20 group-hover:border-primary-foreground/30 transition-all duration-300 group-hover:rotate-90">
                                     <Download
                                         size={15}
                                         className="text-primary-foreground transition-all duration-300 group-hover:translate-y-0.5"
                                         strokeWidth={2.5}
                                     />
-                                    {/* Subtle inner corner detail */}
                                     <span className="absolute top-0 right-0 w-1 h-1 bg-primary-foreground/40 group-hover:bg-background transition-colors duration-300" />
                                 </span>
 
-                                {/* Text content */}
                                 <span className="relative font-semibold tracking-wide text-primary-foreground uppercase text-xs group-hover:tracking-wider transition-all duration-300">
                                     View Resume
                                 </span>
 
-                                {/* Directional arrow indicator */}
                                 <span className="relative flex items-center justify-center w-4 h-4">
                                     <span className="absolute w-1.5 h-1.5 bg-primary-foreground/50 rotate-45 transition-all duration-300 group-hover:translate-x-1 group-hover:bg-background" />
                                     <span className="absolute w-1 h-[2px] bg-primary-foreground/50 -translate-x-0.5 transition-all duration-300 group-hover:w-1.5 group-hover:bg-background" />

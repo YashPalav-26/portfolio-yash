@@ -14,13 +14,13 @@ const NotFound = () => {
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="relative">
-          {/* Background decoration */}
+
           <div className="absolute inset-0 -z-10">
             <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/10 rounded-full blur-xl animate-pulse"></div>
             <div className="absolute bottom-1/4 right-1/4 w-24 h-24 bg-secondary/10 rounded-full blur-xl animate-pulse delay-1000"></div>
           </div>
 
-          {/* Main content */}
+
           <Reveal>
             <div className="mb-8">
               <div className="inline-flex items-center justify-center w-24 h-24 bg-primary/10 border-2 border-primary/30 rounded-full mb-8">
@@ -90,7 +90,6 @@ const NotFound = () => {
         </div>
       </div>
 
-      {/* Floating elements for visual interest */}
       <div className="absolute top-1/4 left-8 hidden lg:block">
         <div className="w-2 h-2 bg-primary/30 rounded-full animate-float"></div>
       </div>

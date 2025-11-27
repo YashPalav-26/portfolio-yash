@@ -19,7 +19,6 @@ const Logo = ({ className, size = "md" }: LogoProps) => {
         xmlns="http://www.w3.org/2000/svg"
         className="w-full h-full"
       >
-        {/* Wing outlines */}
         <path
           d="M20 20 L90 70 L100 95 L60 70 Z"
           fill="none"
@@ -37,7 +36,6 @@ const Logo = ({ className, size = "md" }: LogoProps) => {
           className="text-foreground"
         />
 
-        {/* Center diamond */}
         <polygon
           points="100,102 115,117 100,132 85,117"
           fill="currentColor"
