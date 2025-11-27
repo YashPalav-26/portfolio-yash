@@ -34,23 +34,23 @@
 
     --radius: 0rem;
     
-    /* Vibrant design tokens */
+
     --portfolio-glow: 185 65% 50%;
     --portfolio-section: 210 25% 15%;
     --portfolio-nav: 210 25% 15%;
 
-    /* Vibrant gradients */
+
     --gradient-hero: linear-gradient(135deg, hsl(210 25% 15%), hsl(210 25% 20%));
     --gradient-card: linear-gradient(145deg, hsl(210 25% 20%), hsl(210 25% 22%));
     --gradient-accent: linear-gradient(90deg, hsl(185 65% 50%), hsl(340 95% 65%));
 
-    /* Vibrant shadows */
+
     --shadow-glow: 0 0 15px hsl(var(--portfolio-glow) / 0.3);
     --shadow-card: 0 6px 20px -6px hsl(210 25% 10% / 0.3);
     --shadow-soft: 0 4px 15px -4px hsl(210 25% 10% / 0.2);
     --shadow-brutal: 4px 4px 0px hsl(210 25% 10%);
     
-    /* Animation durations */
+
     --transition-smooth: all 0.2s ease-in-out;
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
@@ -117,33 +117,33 @@
     --sidebar-ring: 185 65% 50%;
   }
 
-  /* Light theme using palette: FCF9EA (bg), FFA4A4 (secondary), FFBDBD (muted/accent), BADFDB (primary) */
+ 
   .light {
-    --background: 50 75% 95%; /* #FCF9EA - warm cream background */
-    --foreground: 210 25% 20%; /* Darker text for better readability */
+    --background: 50 75% 95%; 
+    --foreground: 210 25% 20%; 
 
-    --card: 50 65% 97%; /* Soft cream-white for cards - not harsh white */
+    --card: 50 65% 97%; 
     --card-foreground: 210 25% 20%;
 
     --popover: 50 70% 98%;
     --popover-foreground: 210 25% 20%;
 
-    --primary: 174 50% 40%; /* Rich teal - strong enough for icons */
+    --primary: 174 50% 40%; 
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 85% 60%; /* Vibrant coral */
+    --secondary: 0 85% 60%; 
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 90% 88%; /* Soft pink */
+    --muted: 0 90% 88%;
     --muted-foreground: 210 25% 40%;
 
-    --accent: 174 40% 75%; /* Light teal accents */
+    --accent: 174 40% 75%; 
     --accent-foreground: 210 25% 20%;
 
     --destructive: 0 72% 48%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 15% 85%; /* Subtle borders */
+    --border: 210 15% 85%;
     --input: 50 50% 96%;
     --ring: 174 50% 40%;
 
@@ -151,12 +151,12 @@
     --portfolio-section: 50 75% 95%;
     --portfolio-nav: 50 75% 95%;
 
-    /* Light theme gradients - subtle and elegant */
+  
     --gradient-hero: linear-gradient(135deg, hsl(50 75% 95%), hsl(50 68% 96%));
     --gradient-card: linear-gradient(145deg, hsl(50 65% 97%), hsl(50 60% 98%));
     --gradient-accent: linear-gradient(90deg, hsl(174 50% 40%), hsl(0 85% 60%));
 
-    /* Light theme shadows - softer and more refined */
+
     --shadow-glow: 0 0 20px hsl(174 50% 40% / 0.2);
     --shadow-card: 0 4px 16px -4px hsl(210 25% 50% / 0.15);
     --shadow-soft: 0 2px 12px -3px hsl(210 25% 50% / 0.12);
@@ -179,8 +179,7 @@
   }
 
   html {
-    /* Base font size scaled to 90% to make content appear smaller */
-    font-size: 14.4px; /* 16px * 0.9 = 90% zoom effect */
+    font-size: 14.4px; 
     -webkit-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
@@ -188,19 +187,19 @@
     touch-action: manipulation;
   }
   @media (min-width: 1280px) {
-    html { font-size: 13.95px; } /* 15.5px * 0.9 */
+    html { font-size: 13.95px; }
   }
   @media (min-width: 1440px) {
-    html { font-size: 13.5px; } /* 15px * 0.9 */
+    html { font-size: 13.5px; }
   }
   @media (min-width: 1680px) {
-    html { font-size: 13.05px; } /* 14.5px * 0.9 */
+    html { font-size: 13.05px; }
   }
   @media (min-width: 1920px) {
-    html { font-size: 12.6px; } /* 14px * 0.9 */
+    html { font-size: 12.6px; } 
   }
   @media (min-width: 2560px) {
-    html { font-size: 12.15px; } /* 13.5px * 0.9 */
+    html { font-size: 12.15px; }
   }
 
   body {
@@ -237,7 +236,6 @@
 }
 
 @layer components {
-  /* Badges */
   .stat-badge {
     @apply inline-flex items-center font-semibold tracking-wide uppercase;
     padding: 0.4rem 0.7rem;
@@ -252,7 +250,6 @@
     color: hsl(0 0% 98%);
   }
 
-  /* Icon tiles for light-colored brands */
   .icon-dark-bg {
     background: linear-gradient(145deg, hsl(210 15% 36%), hsl(210 15% 30%));
     border: 1px solid hsl(210 15% 45%);
@@ -324,7 +321,6 @@
     box-shadow: 2px 2px 0px hsl(210 25% 10%);
   }
 
-  /* Button Variants */
   .neobrutalist-button-primary {
     background: hsl(var(--primary));
     color: hsl(var(--primary-foreground));
@@ -337,7 +333,6 @@
     border: 3px solid hsl(210 25% 10%);
   }
 
-  /* Light mode button overrides */
   .light .neobrutalist-button {
     border: 3px solid hsl(210 25% 20%);
     box-shadow: 4px 4px 0px hsl(210 25% 20%);
@@ -384,7 +379,6 @@
     border-color: hsl(var(--primary));
   }
 
-  /* Minimal Geometric Resume Button */
   .resume-button-minimal {
     @apply px-5 py-2.5;
     border: 2px solid hsl(var(--primary));
@@ -431,7 +425,6 @@
     outline-offset: 4px;
   }
 
-  /* Light mode adjustments */
   .light .resume-button-minimal {
     background: hsl(174 45% 45%);
     border-color: hsl(174 45% 45%);
@@ -442,7 +435,6 @@
     border-color: hsl(174 45% 40%);
   }
 
-  /* Responsive adjustments */
   @media (max-width: 640px) {
     .resume-button-minimal {
       @apply px-4 py-2;
@@ -503,11 +495,10 @@
 
 
   .text-hero {
-    font-size: clamp(2.025rem, 5.4vw, 4.05rem); /* 90% of original: 2.25rem -> 2.025rem, 6vw -> 5.4vw, 4.5rem -> 4.05rem */
-    line-height: 1.1;
+    font-size: clamp(2.025rem, 5.4vw, 4.05rem); 
   }
   .text-hero-sub {
-    font-size: clamp(0.9rem, 1.98vw, 1.6875rem); /* 90% of original: 1rem -> 0.9rem, 2.2vw -> 1.98vw, 1.875rem -> 1.6875rem */
+    font-size: clamp(0.9rem, 1.98vw, 1.6875rem); 
     line-height: 1.25;
   }
   
@@ -546,7 +537,6 @@
     box-shadow: 6px 6px 0px hsl(var(--border));
   }
 
-  /* Light mode card styles - softer, warmer backgrounds */
   .light .skill-card {
     background: hsl(50 60% 98%);
     border: 2px solid hsl(210 15% 88%);
@@ -572,7 +562,6 @@
     box-shadow: 6px 6px 0px hsl(210 15% 83%);
   }
 
-  /* Light mode specific section backgrounds */
   .light .skills-shell {
     background: linear-gradient(145deg, hsl(50 65% 97%), hsl(50 58% 98%));
     border: 2px solid hsl(210 15% 88%);
@@ -583,7 +572,6 @@
     @apply transition-all duration-300;
   }
 
-  /* Improve icon visibility in light mode */
   .light .skill-icon svg {
     filter: drop-shadow(0 0 1px rgba(0,0,0,0.25));
   }
@@ -595,7 +583,6 @@
     border-radius: 10px;
   }
 
-  /* Explicit fixes for icons that are inherently light (GitHub, Next.js, Bun, Vercel, Three.js, Express) */
   .light .icon-github svg,
   .light .icon-nextjs svg,
   .light .icon-bun svg,
