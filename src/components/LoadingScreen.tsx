@@ -39,7 +39,6 @@ const LoadingScreen = () => {
             transition={{ duration: 0.5 }}
             className="relative"
           >
-            {/* Animated Logo */}
             <motion.div
               animate={{
                 scale: [1, 1.05, 1],
@@ -65,7 +64,6 @@ const LoadingScreen = () => {
               </motion.div>
             </motion.div>
 
-            {/* Glowing Ring Effect */}
             <motion.div
               animate={{
                 scale: [1, 1.2, 1],
@@ -79,7 +77,6 @@ const LoadingScreen = () => {
               className="absolute inset-0 -m-4 rounded-full border-3 border-primary/40 blur-sm"
             />
 
-            {/* Rotating Border Frame */}
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
@@ -87,7 +84,6 @@ const LoadingScreen = () => {
               style={{ clipPath: "polygon(0 0, 100% 0, 100% 10%, 0 10%, 0 90%, 100% 90%, 100% 100%, 0 100%)" }}
             />
 
-            {/* Counter-Rotating Accent */}
             <motion.div
               animate={{ rotate: -360 }}
               transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
@@ -96,7 +92,6 @@ const LoadingScreen = () => {
             />
           </motion.div>
 
-          {/* Loading Text */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

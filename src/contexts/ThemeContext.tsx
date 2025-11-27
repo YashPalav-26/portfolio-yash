@@ -10,7 +10,6 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // Default theme is dark
   const [theme, setTheme] = useState<Theme>(() => {
     const savedTheme = localStorage.getItem("portfolio-theme") as Theme;
     return savedTheme || "dark";
@@ -18,14 +17,11 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   useEffect(() => {
     const root = document.documentElement;
-    
-    // Remove both classes first
+
     root.classList.remove("light", "dark");
-    
-    // Add the current theme class
+
     root.classList.add(theme);
-    
-    // Save to localStorage
+
     localStorage.setItem("portfolio-theme", theme);
   }, [theme]);
 
