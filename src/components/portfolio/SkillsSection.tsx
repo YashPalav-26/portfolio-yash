@@ -128,15 +128,15 @@ const SkillsSection = () => {
             className="skills-shell mt-16 p-8 relative min-h-[600px] overflow-hidden bg-background
               border border-white/10"
           >
-          <div className="absolute inset-0 bg-background backdrop-blur-[1px] z-0" />
+            <div className="absolute inset-0 bg-background backdrop-blur-[1px] z-0" />
 
             <div className="absolute inset-0 pointer-events-none z-[1] opacity-[0.15]">
               <DotGrid
                 className="w-full h-full p-0"
                 dotSize={4.5}
                 gap={16}
-                baseColor={theme === "light" ? "#f9330cff" : "#38BDF8"}
-                activeColor={theme === "light" ? "#f411deff" : "#1b7ff8ff"}
+                baseColor={theme === "light" ? "#f9330c" : "#40e0ff"}
+                activeColor={theme === "light" ? "#f411de" : "#00ffff"}
                 proximity={120}
                 shockRadius={250}
                 shockStrength={5}
