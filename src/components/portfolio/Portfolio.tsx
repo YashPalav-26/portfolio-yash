@@ -7,7 +7,7 @@ import HeroSection from "./HeroSection";
 import AboutSection from "./AboutSection";
 import SkillsSection from "./SkillsSection";
 import ExperienceSection from "./ExperienceSection";
-import ProjectsSection from "./ProjectsSection";
+import ProjectsSection from "./ProjectsSection"
 import ContactSection from "./ContactSection";
 import Footer from "./Footer";
 import MobileActionBar from "./MobileActionBar";
