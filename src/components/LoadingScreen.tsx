@@ -1,23 +1,27 @@
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
-import Logo from "./portfolio/Logo";
 
 const LoadingScreen = () => {
   const [progress, setProgress] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
+    const duration = 5500;
+    const intervalTime = 50;
+    const steps = duration / intervalTime;
+    const increment = 100 / steps;
+
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          setTimeout(() => setIsComplete(true), 500);
+          setTimeout(() => setIsComplete(true), 200);
           return 100;
         }
-        const increment = prev < 60 ? Math.random() * 15 + 10 : Math.random() * 5 + 2;
         return Math.min(prev + increment, 100);
       });
-    }, 150);
+    }, intervalTime);
 
     return () => clearInterval(interval);
   }, []);
@@ -26,196 +30,329 @@ const LoadingScreen = () => {
 
   return (
     <AnimatePresence>
-      <motion.div
+      <Container
         initial={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
-        className="fixed inset-0 z-[9999] flex items-center justify-center bg-background"
       >
-        <div className="relative flex flex-col items-center gap-8">
-          <motion.div
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="relative"
-          >
-            <motion.div
-              animate={{
-                scale: [1, 1.05, 1],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="relative z-10"
-            >
-              <motion.div
-                animate={{
-                  y: [0, -10, 0],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
-                <Logo size="lg" className="w-32 h-32 md:w-40 md:h-40" />
-              </motion.div>
-            </motion.div>
-
-            <motion.div
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.3, 0.6, 0.3],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute inset-0 -m-4 rounded-full border-3 border-primary/40 blur-sm"
-            />
-
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-              className="absolute -inset-4 border-3 border-primary/30"
-              style={{ clipPath: "polygon(0 0, 100% 0, 100% 10%, 0 10%, 0 90%, 100% 90%, 100% 100%, 0 100%)" }}
-            />
-
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-              className="absolute -inset-3 border-2 border-secondary/20"
-              style={{ clipPath: "polygon(10% 0, 90% 0, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0 90%, 0 10%)" }}
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="text-center space-y-2"
-          >
-            <p className="text-xl font-mono text-foreground/80 tracking-wider">
-              LOADING PORTFOLIO
-            </p>
-            <div className="flex items-center gap-2 justify-center">
-              {[0, 1, 2].map((i) => (
-                <motion.div
-                  key={i}
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.3, 1, 0.3],
-                  }}
-                  transition={{
-                    duration: 1,
-                    repeat: Infinity,
-                    delay: i * 0.2,
-                  }}
-                  className="w-2 h-2 bg-primary"
-                  style={{ transform: "rotate(45deg)" }}
-                />
-              ))}
+        <StyledWrapper>
+          <div className="clouds">
+            <div className="cloud cloud1" />
+            <div className="cloud cloud2" />
+            <div className="cloud cloud3" />
+            <div className="cloud cloud4" />
+            <div className="cloud cloud5" />
+          </div>
+          <div className="loader">
+            <span><span /><span /><span /><span /></span>
+            <div className="base">
+              <span />
+              <div className="face" />
             </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5 }}
-            className="w-64 md:w-96"
-          >
-            <div className="relative h-3 bg-background border-3 border-border overflow-hidden">
-              <motion.div
-                initial={{ width: 0 }}
-                animate={{ width: `${progress}%` }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-                className="h-full relative"
-                style={{
-                  background: "linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)))",
-                }}
-              >
-                <motion.div
-                  animate={{
-                    x: ["-100%", "200%"],
-                  }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="absolute inset-0 w-1/3"
-                  style={{
-                    background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)",
-                  }}
-                />
-              </motion.div>
-
-
-              <div className="absolute -bottom-1 -right-1 w-full h-full border-3 border-border -z-10" />
-            </div>
-
-
-            <motion.div
-              className="mt-3 text-center"
-              key={Math.floor(progress)}
-            >
-              <span className="text-2xl font-black font-mono text-primary">
-                {Math.floor(progress)}%
-              </span>
-            </motion.div>
-          </motion.div>
-
-          <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            {["</>", "{}", "[]", "( )", "=>", "&&"].map((symbol, i) => (
-              <motion.div
-                key={i}
-                initial={{
-                  opacity: 0,
-                  x: `${Math.random() * 100}%`,
-                  y: "100%",
-                }}
-                animate={{
-                  opacity: [0, 0.3, 0],
-                  y: ["-20%", "-120%"],
-                  x: `${Math.random() * 100}%`,
-                }}
-                transition={{
-                  duration: 3 + Math.random() * 2,
-                  repeat: Infinity,
-                  delay: Math.random() * 2,
-                  ease: "linear",
-                }}
-                className="absolute text-4xl font-mono font-bold text-primary/20"
-              >
-                {symbol}
-              </motion.div>
-            ))}
           </div>
-
-          <div className="fixed top-8 left-8">
-            <motion.div
-              animate={{ rotate: [0, 90, 90, 0] }}
-              transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
-              className="w-16 h-16 border-4 border-primary"
-              style={{ clipPath: "polygon(0 0, 100% 0, 100% 50%, 50% 50%, 50% 100%, 0 100%)" }}
-            />
+          <div className="longfazers">
+            <span /><span /><span /><span />
           </div>
-
-          <div className="fixed bottom-8 right-8">
-            <motion.div
-              animate={{ rotate: [0, -90, -90, 0] }}
-              transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
-              className="w-16 h-16 border-4 border-secondary"
-              style={{ clipPath: "polygon(50% 0, 100% 0, 100% 100%, 0 100%, 0 50%, 50% 50%)" }}
-            />
+          <div className="progress-text">
+            {Math.floor(progress)}%
           </div>
-        </div>
-      </motion.div>
+        </StyledWrapper>
+      </Container>
     </AnimatePresence>
   );
-};
+}
+
+const Container = styled(motion.div)`
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: hsl(var(--background));
+  overflow: hidden;
+`;
+
+const StyledWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+
+  .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px; 
+    transform: translate(-50%, -50%); 
+    width: 200px; 
+    height: 100px; 
+    animation: speeder 0.4s linear infinite;
+    z-index: 20;
+  }
+  
+  .loader {
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    animation: speeder 0.4s linear infinite;
+    z-index: 20;
+  }
+
+  .loader > span {
+    height: 5px;
+    width: 35px;
+    background: hsl(var(--primary));
+    position: absolute;
+    top: -19px;
+    left: 60px;
+    border-radius: 2px 10px 1px 0;
+  }
+
+  .base span {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-right: 100px solid hsl(var(--primary) / 0.3); 
+    border-bottom: 6px solid transparent;
+  }
+
+  .base span:before {
+    content: "";
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    background: hsl(var(--primary) / 0.3); 
+    position: absolute;
+    right: -110px;
+    top: -16px;
+  }
+
+  .base span:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 0 solid transparent;
+    border-right: 55px solid hsl(var(--primary) / 0.3); 
+    border-bottom: 16px solid transparent;
+    top: -16px;
+    right: -98px;
+  }
+
+  .face {
+    position: absolute;
+    height: 12px;
+    width: 20px;
+    background: hsl(var(--primary) / 0.3); 
+    border-radius: 20px 20px 0 0;
+    transform: rotate(-40deg);
+    right: -125px;
+    top: -15px;
+  }
+
+  .face:after {
+    content: "";
+    height: 12px;
+    width: 12px;
+    background: hsl(var(--primary)); 
+    right: 4px;
+    top: 7px;
+    position: absolute;
+    transform: rotate(40deg);
+    transform-origin: 50% 50%;
+    border-radius: 0 0 2px 2px;
+  }
+
+  .loader > span > span {
+    width: 30px;
+    height: 1px;
+    background: hsl(var(--foreground)); 
+    position: absolute;
+  }
+
+  .loader > span > span:nth-child(1) {
+    animation: fazer1 0.2s linear infinite;
+  }
+
+  .loader > span > span:nth-child(2) {
+    top: 3px;
+    animation: fazer2 0.4s linear infinite;
+  }
+
+  .loader > span > span:nth-child(3) {
+    top: 1px;
+    animation: fazer3 0.4s linear infinite;
+    animation-delay: -1s;
+  }
+
+  .loader > span > span:nth-child(4) {
+    top: 4px;
+    animation: fazer4 1s linear infinite;
+    animation-delay: -1s;
+  }
+
+  @keyframes fazer1 {
+    0% { left: 0; }
+    100% { left: -80px; opacity: 0; }
+  }
+
+  @keyframes fazer2 {
+    0% { left: 0; }
+    100% { left: -100px; opacity: 0; }
+  }
+
+  @keyframes fazer3 {
+    0% { left: 0; }
+    100% { left: -50px; opacity: 0; }
+  }
+
+  @keyframes fazer4 {
+    0% { left: 0; }
+    100% { left: -150px; opacity: 0; }
+  }
+
+  @keyframes speeder {
+    0% { transform: translate(2px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -3px) rotate(-1deg); }
+    20% { transform: translate(-2px, 0px) rotate(1deg); }
+    30% { transform: translate(1px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 3px) rotate(-1deg); }
+    60% { transform: translate(-1px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-2px, -1px) rotate(1deg); }
+    90% { transform: translate(2px, 1px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+
+  .longfazers {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+  }
+
+  .longfazers span {
+    position: absolute;
+    height: 2px;
+    width: 20%;
+    background: hsl(var(--primary)); 
+  }
+
+  .longfazers span:nth-child(1) {
+    top: 20%;
+    animation: lf 0.6s linear infinite;
+    animation-delay: -5s;
+  }
+
+  .longfazers span:nth-child(2) {
+    top: 40%;
+    animation: lf2 0.8s linear infinite;
+    animation-delay: -1s;
+  }
+
+  .longfazers span:nth-child(3) {
+    top: 60%;
+    animation: lf3 0.6s linear infinite;
+  }
+
+  .longfazers span:nth-child(4) {
+    top: 80%;
+    animation: lf4 0.5s linear infinite;
+    animation-delay: -3s;
+  }
+
+  @keyframes lf {
+    0% { left: 200%; }
+    100% { left: -200%; opacity: 0; }
+  }
+
+  @keyframes lf2 {
+    0% { left: 200%; }
+    100% { left: -200%; opacity: 0; }
+  }
+
+  @keyframes lf3 {
+    0% { left: 200%; }
+    100% { left: -100%; opacity: 0; }
+  }
+
+  @keyframes lf4 {
+    0% { left: 200%; }
+    100% { left: -100%; opacity: 0; }
+  }
+
+  .clouds {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .cloud {
+    position: absolute;
+    background: hsl(var(--foreground)); 
+    border-radius: 50%;
+    opacity: 0.1; 
+    animation: moveClouds linear infinite;
+  }
+
+  .cloud::before,
+  .cloud::after {
+    content: "";
+    position: absolute;
+    background: inherit;
+    border-radius: 50%;
+  }
+
+  .cloud::before {
+    width: 60%;
+    height: 60%;
+    top: -30%;
+    left: 10%;
+  }
+
+  .cloud::after {
+    width: 40%;
+    height: 40%;
+    top: -20%;
+    left: 50%;
+  }
+
+  .cloud1 {
+    width: 100px;
+    height: 60px;
+    top: 15%;
+    left: 100%; 
+    animation-duration: 2s;
+  }
+  
+  .cloud1 { top: 15%; left: 100%; animation-duration: 2s; }
+  .cloud2 { width: 150px; height: 80px; top: 35%; left: 100%; animation-duration: 3s; }
+  .cloud3 { width: 80px; height: 50px; top: 20%; left: 100%; animation-duration: 4s; }
+  .cloud4 { width: 100px; height: 80px; top: 70%; left: 100%; animation-duration: 3s; }
+  .cloud5 { width: 170px; height: 50px; top: 80%; left: 100%; animation-duration: 2s; }
+
+  @keyframes moveClouds {
+    0% { transform: translateX(20vw); } 
+    100% { transform: translateX(-120vw); }
+  }
+
+  .progress-text {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: 24px;
+    font-size: 2rem;
+    font-weight: 900;
+    font-family: monospace;
+    color: hsl(var(--primary));
+    opacity: 0.8;
+  }
+`;
 
 export default LoadingScreen;
