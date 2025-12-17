@@ -8,7 +8,6 @@ const LoadingScreen = () => {
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
-    // 5.5 seconds duration as last edited by user
     const duration = 5500;
     const intervalTime = 50;
     const steps = duration / intervalTime;
@@ -49,7 +48,6 @@ const LoadingScreen = () => {
           <div className="content-box">
             <div className="loader-wrapper">
               <div className="loader">
-                {/* Structure exactly as requested */}
                 <span><span /><span /><span /><span /></span>
                 <div className="base">
                   <span />
@@ -98,18 +96,13 @@ const StyledWrapper = styled.div`
     position: relative;
     z-index: 20;
     width: 100%;
-    /* Scaling for mobile responsiveness if needed, but flex should handle layout */
   }
 
-  /* WRAPPER to hold the absolute-positioned speeder within the flow */
   .loader-wrapper {
     position: relative;
     width: 200px;
-    height: 100px; /* Space reserved for the animation */
-    /* Center the internal logical offset of the drawing */
+    height: 100px;
     transform: translateX(-65px); 
-    /* The speeder drawing is biased to the right. -35px visual adjustment centers it. 
-       Adjust this value if the "center of mass" feels off. */
   }
 
   .loader {
@@ -118,7 +111,6 @@ const StyledWrapper = styled.div`
     position: absolute;
     top: 50%;
     left: 50%;
-    /* No margin-left here, we use the wrapper to center the whole unit */
     animation: speeder 0.4s linear infinite;
     z-index: 20;
   }
@@ -237,7 +229,6 @@ const StyledWrapper = styled.div`
     height: 100%;
     z-index: 10;
     overflow: hidden; 
-    /* Contain the longfazers within the wrapper */
   }
 
   .longfazers span {
@@ -247,7 +238,6 @@ const StyledWrapper = styled.div`
     background: hsl(var(--primary));
   }
   
-  /* Fazers animations same as before */
   .longfazers span:nth-child(1) { top: 20%; animation: lf 0.6s linear infinite; animation-delay: -5s; }
   .longfazers span:nth-child(2) { top: 40%; animation: lf2 0.8s linear infinite; animation-delay: -1s; }
   .longfazers span:nth-child(3) { top: 60%; animation: lf3 0.6s linear infinite; }
@@ -293,7 +283,7 @@ const StyledWrapper = styled.div`
   }
 
   .progress-text {
-    margin-top: 40px; /* Space from the loader */
+    margin-top: 40px; 
     margin-left: 18px;
     font-size: 2rem;
     font-weight: 900;
