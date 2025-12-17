@@ -23,7 +23,7 @@ const App = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 4500); // 4.5 seconds minimum
+    }, 5500); // 5.5 seconds minimum
 
     return () => clearTimeout(timer);
   }, []);
