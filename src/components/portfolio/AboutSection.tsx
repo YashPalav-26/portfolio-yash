@@ -195,14 +195,14 @@ const AboutSection = () => {
                       "
                     >
                       <div
-                        className="
+                        className={`
                           p-2 rounded-lg
-                          text-foreground/50
+                          ${interest.color} ${interest.bg}
                           transition-all duration-300
                           sm:group-hover:text-primary
                           sm:group-hover:scale-105
                           shrink-0
-                        "
+                        `}
                       >
                         <Icon size={18} />
                       </div>
